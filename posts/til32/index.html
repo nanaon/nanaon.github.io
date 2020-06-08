@@ -107,30 +107,32 @@ List는 데이터를 순차적으로 쌓기 때문에 list가 처음 생성될 �
 <li>
 <p>간단한 값을 빠르게 리턴할 수 있다.</p>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># Tuple을 사용하는 경우</span>
-<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre></div>
+<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment"># Tuple을 안 쓰는 경우에는 class를 생성해야함</span>
+<span class="token keyword">class</span> <span class="token class-name">Cord</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	self<span class="token punctuation">.</span>x <span class="token operator">=</span> x
+	self<span class="token punctuation">.</span>y <span class="token operator">=</span> y</code></pre></div>
 </li>
 </ol>
-<h1 id="tuple을-안-쓰는-경우에는-class를-생성해야함" style="position:relative;"><a href="#tuple%EC%9D%84-%EC%95%88-%EC%93%B0%EB%8A%94-%EA%B2%BD%EC%9A%B0%EC%97%90%EB%8A%94-class%EB%A5%BC-%EC%83%9D%EC%84%B1%ED%95%B4%EC%95%BC%ED%95%A8" aria-label="tuple을 안 쓰는 경우에는 class를 생성해야함 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tuple을 안 쓰는 경우에는 class를 생성해야함</h1>
-<p>class Cord:
-def <strong>init</strong>(self, x, y):
-self.x = x
-self.y = y</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;br&gt;
-
-### Tuple 단점
-1. 데이터를 맥락으로 파악해야 한다.
-Dictionary는 key와 value가 명시되어있기 때문에 자료 의미를 정확하게 파악할 수 있지만 tuple은 값만 담고 있기 때문에 의미가 명확하지 않다.
-
-&lt;br&gt;
-
-### Tuple을 사용하면 좋은 데이터 종류
-- 간단한 데이터 (예 - 좌표 데이터)
-```python
-coordinations = [
-    (1, 2),
-    (3, 4),
-    (5, 6)
-]</code></pre></div>
+<br>
+<h3 id="tuple-단점" style="position:relative;"><a href="#tuple-%EB%8B%A8%EC%A0%90" aria-label="tuple 단점 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tuple 단점</h3>
+<ol>
+<li>데이터를 맥락으로 파악해야 한다.
+Dictionary는 key와 value가 명시되어있기 때문에 자료 의미를 정확하게 파악할 수 있지만 tuple은 값만 담고 있기 때문에 의미가 명확하지 않다.</li>
+</ol>
+<br>
+<h3 id="tuple을-사용하면-좋은-데이터-종류" style="position:relative;"><a href="#tuple%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A2%85%EB%A5%98" aria-label="tuple을 사용하면 좋은 데이터 종류 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tuple을 사용하면 좋은 데이터 종류</h3>
+<ul>
+<li>
+<p>간단한 데이터 (예 - 좌표 데이터)</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">coordinations <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span></code></pre></div>
+</li>
+</ul>
 <br>
 <h3 id="복습" style="position:relative;"><a href="#%EB%B3%B5%EC%8A%B5" aria-label="복습 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>복습</h3>
 <p><strong>Q1. 자료구조의 정의와 중요한 이유를 설명하세요.</strong>
