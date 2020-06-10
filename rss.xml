@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Jun 2020 12:52:50 GMT</lastBuildDate><item><title><![CDATA[Daily log - 16일차]]></title><description><![CDATA[2020년 6월 9일 화요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day16</link><guid isPermaLink="false">https://nanaon.github.io/posts/day16</guid><pubDate>Tue, 09 Jun 2020 21:31:32 GMT</pubDate><content:encoded>&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jun 2020 08:51:17 GMT</lastBuildDate><item><title><![CDATA[HTTP 기초]]></title><description><![CDATA[HTTP 구조와 핵심 요소]]></description><link>https://nanaon.github.io/posts/til33</link><guid isPermaLink="false">https://nanaon.github.io/posts/til33</guid><pubDate>Wed, 10 Jun 2020 15:20:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;http란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http%EB%9E%80&quot; aria-label=&quot;http란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP란?&lt;/h3&gt;
+&lt;p&gt;HyperText Transfer Protocol 줄임말로, 하이퍼텍스트 문서(HTML)를 교환하기 위해 만들어진 통신 규약(protocol)이다. 즉, 웹 상에서 클라이언트와 서버 간 혹은 서버끼리 통신을 할 때 어떤 방식으로 할지 정해놓은 규칙이다. 주소 맨 앞에 있는 &lt;code class=&quot;language-text&quot;&gt;http://&lt;/code&gt; 가 이 프로토콜로 정보를 교환하겠다는 뜻이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;http-특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;http 특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 특징&lt;/h3&gt;
+&lt;p&gt;HTTP는 클라이언트가 요청을 보내면 서버가 응답하는 요청(request) - 응답(reponse) 구조다. 클라이언트가 특정 웹 페이지나 이미지를 요청하면 서버에서 요청에 해당하는 정보를 응답해 클라이언트가 웹 페이지를 볼 수 있게 하는 식이다. 클라이언트에게 응답 후에는 연결을 바로 끊기 때문에 각 요청 - 응답은 독립적으로 이루어진다. 보통 클라이언트와 서버는 n:1 관계이므로 계속해서 연결을 유지해놓을 수가 없기 때문이다. 하지만 클라이언트의 요청을 기억해놓을 필요가 있을 때(예: 장바구니에 담은 물건)에는 쿠키나 세션을 이용한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;http-request-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-request-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;http request 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP Request 구조&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Start line&lt;/li&gt;
+&lt;li&gt;Headers&lt;/li&gt;
+&lt;li&gt;Body&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;start-line&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#start-line&quot; aria-label=&quot;start line permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Start line&lt;/h4&gt;
+&lt;p&gt;HTTP request 첫 줄이다. HTTP 메서드, request target uri, HTTP 버전 세 가지로 구성된다.
+&lt;code class=&quot;language-text&quot;&gt;GET www.naver.com HTTP/1.1&lt;/code&gt;은 브라우저 주소창에 &lt;code class=&quot;language-text&quot;&gt;www.naver.com&lt;/code&gt;을 입력해서 네이버 웹 사이트를 불러와달라는 요청을 한 것과 같다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HTTP 메서드&lt;/strong&gt;란 해당 request가 의도한 것이 무엇인지 정의하는 부분이다. 여러 종류가 있는데, 주로 쓰이는 것은 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; 방식이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;아주 단순하게 생각하면 이렇다.&lt;br&gt;
+POST - 생성 (예: 새 글 생성)&lt;br&gt;
+GET - 조회 (예: 검색 결과 받아오기)&lt;br&gt;
+PUT - 수정 (예: 댓글 수정)&lt;br&gt;
+DELETE - 삭제 (예: 글 삭제)&lt;br&gt;
+등등&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;request target uri&lt;/strong&gt;란 해당 request가 전송되는 목표 uri다. 어떤 사이트 내에서 특정 자원의 위치를 나타내는 유일한 주소다. &lt;code class=&quot;language-text&quot;&gt;https://www.naver.com/NOTICE&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;/NOTICE&lt;/code&gt; 부분이다.&lt;/p&gt;
+&lt;h4 id=&quot;headers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers&quot; aria-label=&quot;headers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Headers&lt;/h4&gt;
+&lt;p&gt;해당 request에 대한 추가 정보를 담고 있는 부분이다. Host, User-Agent, Accept, Connection, Content-Type, Content-Length, Date, Connection, Cache-Control, Content-Language, Content-Encoding 등의 key가 있고, 해당하는 value가 &lt;code class=&quot;language-text&quot;&gt;key:value&lt;/code&gt; 형태로 표시된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 257
+Host: google.com #접속한 주소
+User-Agent: HTTPie/0.9.3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;body&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#body&quot; aria-label=&quot;body permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Body&lt;/h4&gt;
+&lt;p&gt;request 실제 내용이 담기는 부분이다. 회원 가입 시 사용자가 이름, 아이디, 비밀번호 값을 입력한다고 할 때 body에 이 정보가 담겨 POST 메서드로 서버에 전송된다. 있는 것을 불러오기만 하는 GET request는 대부분 body가 없다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /payment-sync HTTP/1.1
+
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 83
+Content-Type: application/json
+Host: intropython.com
+User-Agent: HTTPie/0.9.3
+
+# body 부분
+{
+    &amp;quot;imp_uid&amp;quot;: &amp;quot;imp_1234567890&amp;quot;,
+    &amp;quot;merchant_uid&amp;quot;: &amp;quot;order_id_8237352&amp;quot;,
+    &amp;quot;status&amp;quot;: &amp;quot;paid&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;http-response-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-response-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;http response 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP Response 구조&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Status line&lt;/li&gt;
+&lt;li&gt;Headers&lt;/li&gt;
+&lt;li&gt;Body&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;status-line&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#status-line&quot; aria-label=&quot;status line permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Status line&lt;/h4&gt;
+&lt;p&gt;Response 상태가 어떤지 나타내주는 부분이다. HTTP 버전, Status 코드, Status 텍스트로 구성된다. &lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 404 Not Found&lt;/code&gt;라는 status line은 HTTP 1.1 버전이며 404 에러, 즉 요청한 url을 찾을 수 없다는 상태를 나타냅니다.&lt;/p&gt;
+&lt;h4 id=&quot;headers-body&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers-body&quot; aria-label=&quot;headers body permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;headers, body&lt;/h4&gt;
+&lt;p&gt;Request headers, body와 기본적으로 동일하다. 단 body는 request와 마찬가지로 데이터를 전송할 필요가 없을 때에는 비어있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;기타-알아두면-좋을-것&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%ED%83%80-%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4-%EC%A2%8B%EC%9D%84-%EA%B2%83&quot; aria-label=&quot;기타 알아두면 좋을 것 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기타 알아두면 좋을 것&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;클라이언트에서 서버로 데이터를 전달하려면 HTTP request의 body에 넣으면 된다.&lt;/li&gt;
+&lt;li&gt;쿠키나 세션에 응답을 저장한 경우에 한해, 이전 응답을 확인하기 위해서는 쿠키나 세션을 확인하면 된다.&lt;/li&gt;
+&lt;li&gt;클라이언트에서 서버로부터 받은 데이터는 HTTP response를 확인하면 된다.&lt;/li&gt;
+&lt;li&gt;HTTP는 Stateless이다.&lt;/li&gt;
+&lt;li&gt;HTTP는 백엔드 - 프론트엔드 간의 통신에 필요하다.&lt;/li&gt;
+&lt;li&gt;HTTP는 기본적으로 요청/응답 (request/response) 구조로 되어있다.&lt;/li&gt;
+&lt;li&gt;백엔드와 백엔드끼리 요청에도 사용할 수 있다. (서버 간 통신)&lt;/li&gt;
+&lt;li&gt;HTTP request 메세지 중에서 해당 request의 실제 메세지/내용이 포함된 것은 body다.&lt;/li&gt;
+&lt;li&gt;HTTP Response의 Status Line에서 문제없이 다 잘 실행 되었을때 보내는 status code는 200이다.&lt;/li&gt;
+&lt;li&gt;카테고리 목록을 조회하는 API 엔드포인트의 올바른 HTTP 메소드와 주소는 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/category&lt;/code&gt;이다.&lt;/li&gt;
+&lt;li&gt;회원가입하는 엔드포인트로서 적절한 것은 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/user/sign-up&lt;/code&gt;이다.&lt;/li&gt;
+&lt;li&gt;사용자 로그인을 진행하는 엔드포인트로 올바른 메소드와 주소는 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/user/sign-in&lt;/code&gt;이다.&lt;/li&gt;
+&lt;li&gt;1번 상품의 상세 정보를 볼 수 있는 엔드포인트의 주소와 메소드로 적절한 것은 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/product/1&lt;/code&gt;이다.&lt;/li&gt;
+&lt;li&gt;1번 회원 정보를 수정하는 엔드포인트의 메소드로 적절한 것은 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;,  &lt;code class=&quot;language-text&quot;&gt;PATCH&lt;/code&gt;다. (요즘에는 주로 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;를 사용한다.)&lt;/li&gt;
+&lt;li&gt;1번 회원 정보를 수정하는 엔드포인트의 주소로 적절한 것은 &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/user/1&lt;/code&gt;이다.&lt;/li&gt;
+&lt;li&gt;쿼리스트링 이름이 query인 검색 엔드포인트에 “위코드”를 검색하는 올바른 주소와 메소드는 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;http://wecode.co.kr/search?query=&amp;quot;위코드&amp;quot;&lt;/code&gt;다.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Daily log - 16일차]]></title><description><![CDATA[2020년 6월 9일 화요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day16</link><guid isPermaLink="false">https://nanaon.github.io/posts/day16</guid><pubDate>Tue, 09 Jun 2020 21:31:32 GMT</pubDate><content:encoded>&lt;br&gt;
 &lt;p&gt;&lt;img src=&quot;/media/200609-day16.JPG&quot; alt=&quot;day16&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;오전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%A0%84&quot; aria-label=&quot;오전 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오전&lt;/h3&gt;
 &lt;p&gt;장고 튜토리얼 시작. 문서가 번역투인데다 중간중간 영어도 섞여있어서 마냥 편하진 않았다. 장고 튜토리얼 영상에서 설명 들으면서 같이 하니까 조금 나았다. iTerm과 vim을 그나마 멋지게 세팅해놓아서 코드 칠 맛이 났다. 젯밥부터 관심 가진 덕을 봤다.&lt;/p&gt;
