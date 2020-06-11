@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jun 2020 10:40:04 GMT</lastBuildDate><item><title><![CDATA[Daily log - 17일차]]></title><description><![CDATA[2020년 6월 10일 수요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day17</link><guid isPermaLink="false">https://nanaon.github.io/posts/day17</guid><pubDate>Wed, 10 Jun 2020 20:31:32 GMT</pubDate><content:encoded>&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Jun 2020 01:02:30 GMT</lastBuildDate><item><title><![CDATA[django - django 기초 실습]]></title><description><![CDATA[장고 입문의 입문의 입문 단계를 힘겹게 통과하는 과정을 담았다.]]></description><link>https://nanaon.github.io/posts/til34</link><guid isPermaLink="false">https://nanaon.github.io/posts/til34</guid><pubDate>Wed, 10 Jun 2020 22:30:32 GMT</pubDate><content:encoded>&lt;p&gt;장고 동작 원리 등 장고 기초 지식은 따로 포스팅하고, 오늘은 장고 실습 중 겪었던 우여곡절을 우선 기록한다.&lt;/p&gt;
+&lt;h3 id=&quot;실습-프로젝트-진행-순서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%EC%8A%B5-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A7%84%ED%96%89-%EC%88%9C%EC%84%9C&quot; aria-label=&quot;실습 프로젝트 진행 순서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실습 프로젝트 진행 순서&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;미니콘다 가상환경 생성 &lt;code class=&quot;language-text&quot;&gt;conda create -n 가상환경이름 python=버전&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;장고 설치 &lt;code class=&quot;language-text&quot;&gt;pip install django&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;프로젝트 생성 &lt;code class=&quot;language-text&quot;&gt;django-admin startproject 프로젝트명&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;앱 생성 &lt;code class=&quot;language-text&quot;&gt;python manage.py startapp 앱이름&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;메인 디렉토리 내 setting.py에서 &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt; 항목에 앱 추가 &lt;code class=&quot;language-text&quot;&gt;앱이름.apps.클래스명&lt;/code&gt; 클래스명은 앱 디렉토리의 apps.py에서 확인 가능 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;앱 디렉토리 내 views.py에서 request가 들어왔을 때 화면에 띄워줄 내용 세팅&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 엔드포인트 뷰를 꾸릴 때 항상 사용하는 대표적인 요소&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; json
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; View
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http  &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; JsonResponse
+&lt;span class=&quot;token comment&quot;&gt;# 여기까지&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;get-요청이-들어왔을-때-출력할-것&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#get-%EC%9A%94%EC%B2%AD%EC%9D%B4-%EB%93%A4%EC%96%B4%EC%99%94%EC%9D%84-%EB%95%8C-%EC%B6%9C%EB%A0%A5%ED%95%A0-%EA%B2%83&quot; aria-label=&quot;get 요청이 들어왔을 때 출력할 것 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;get 요청이 들어왔을 때 출력할 것&lt;/h1&gt;
+&lt;p&gt;class MainView(View):
+def get(self, request):
+return JsonResponse({“필드명”:“값”}, status=200)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;7. 앱 디렉토리에 urls.py를 생성해서 클라이언트가 `주소/앱이름`을 요청했을 때 views.py에서 세팅한 내용이 보이도록 설정
+```python
+from django.urls import path
+from .views  import MainView
+
+# 메인도메인/앱이름 경로로 들어왔을 때 MainView 클래스 안 return값 보여줌
+# path(&amp;#39;&amp;#39;, MainView.as_view())에서 &amp;#39;&amp;#39;부분에 uri 값 추가 가능
+urlpatterns = [
+    path(&amp;#39;&amp;#39;, MainView.as_view())
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;메인 디렉토리 urls.py에 앱 디렉토리 내 urls.py를 연결&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 장고에서 기본으로 지원하는 어드민 사이트 관련&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;contrib &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; admin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;include-추가로-임포트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#include-%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%9E%84%ED%8F%AC%ED%8A%B8&quot; aria-label=&quot;include 추가로 임포트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;include 추가로 임포트&lt;/h1&gt;
+&lt;p&gt;from django.urls import path, include&lt;/p&gt;
+&lt;p&gt;urlpatterns = [&lt;/p&gt;
+&lt;h1 id=&quot;장고에서-기본으로-지원하는-어드민-사이트-관련&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%A5%EA%B3%A0%EC%97%90%EC%84%9C-%EA%B8%B0%EB%B3%B8%EC%9C%BC%EB%A1%9C-%EC%A7%80%EC%9B%90%ED%95%98%EB%8A%94-%EC%96%B4%EB%93%9C%EB%AF%BC-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B4%80%EB%A0%A8&quot; aria-label=&quot;장고에서 기본으로 지원하는 어드민 사이트 관련 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;장고에서 기본으로 지원하는 어드민 사이트 관련&lt;/h1&gt;
+&lt;p&gt;  path(‘admin/’, admin.site.urls),&lt;/p&gt;
+&lt;h1 id=&quot;메인도메인앱이름-부분에서-앱이름-입력-및-앱-디렉토리-내-urlspy-파일-경로-지정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%94%EC%9D%B8%EB%8F%84%EB%A9%94%EC%9D%B8%EC%95%B1%EC%9D%B4%EB%A6%84-%EB%B6%80%EB%B6%84%EC%97%90%EC%84%9C-%EC%95%B1%EC%9D%B4%EB%A6%84-%EC%9E%85%EB%A0%A5-%EB%B0%8F-%EC%95%B1-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EB%82%B4-urlspy-%ED%8C%8C%EC%9D%BC-%EA%B2%BD%EB%A1%9C-%EC%A7%80%EC%A0%95&quot; aria-label=&quot;메인도메인앱이름 부분에서 앱이름 입력 및 앱 디렉토리 내 urlspy 파일 경로 지정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;메인도메인/앱이름/ 부분에서 ‘앱이름/’ 입력 및 앱 디렉토리 내 urls.py 파일 경로 지정&lt;/h1&gt;
+&lt;p&gt;  path(‘앱이름/’, include(‘앱이름.urls’))
+]&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;9. models.py에서 클라이언트가 입력한 정보를 담을 테이블 생성
+```python
+from django.db import models
+
+# 여기서 만든 클래스는 장고-db에서 임포트 한 models 패키지의 Model 클래스를 상속 받음
+class 클래스이름(models.Model):
+  # 속성 타입(정수, 문자열 등)에 따라 데이터 길이나 조건 명시
+  속성1 = models.CharField(max_length=최대길이값) # 문자열
+  속성2 = models.IntegerField(default=0) # 정수
+  속성3 = models.DataTimeField(auto_now_add = True) # 시간 (최초 발행시간. 변경 X)
+  속성4 = models.DataTimeField(auto_now = True) # 시간 (업데이트 시간)
+  ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;DB 테이블에 반영하기 &lt;code class=&quot;language-text&quot;&gt;python manage.py makemigrations&lt;/code&gt; - &lt;code class=&quot;language-text&quot;&gt;python manage.py migrate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;views.py가 models.py에서 정보를 가져오거나(&lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;) 입력할 수 있도록(&lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;) 연결&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; json
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; View
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; JsonResponse
+&lt;span class=&quot;token comment&quot;&gt;# 추가&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models      &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; 클래스명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;mainview-클래스가-이미-가지고-있는-post-get-메서드-정의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mainview-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%80-%EC%9D%B4%EB%AF%B8-%EA%B0%80%EC%A7%80%EA%B3%A0-%EC%9E%88%EB%8A%94-post-get-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%A0%95%EC%9D%98&quot; aria-label=&quot;mainview 클래스가 이미 가지고 있는 post get 메서드 정의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;MainView 클래스가 이미 가지고 있는 post, get 메서드 정의&lt;/h1&gt;
+&lt;p&gt;class MainView(View):
+def post(self, request):
+data = json.loads(request.body)
+Users(
+속성1     = data[‘필드1’],
+속성2    = data[‘필드2’],
+).save() # 데이터 테이블에 저장&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    return JsonResponse({&amp;#39;message&amp;#39;:&amp;#39;SUCCESS&amp;#39;}, status=200)
+
+def get(self, request):
+	    return JsonResponse({&amp;quot;Hello&amp;quot;:&amp;quot;World&amp;quot;}, status=200)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;12. httpie로 데이터 입력해서 테스트 해보기 `http -v &amp;#39;서버 띄운 로컬 주소&amp;#39; name=유저이름 email=이메일주소 password=비밀번호`
+
+13. 입력한 데이터를 화면에서 확인할 수 있도록 views.py 안 `get` 메서드 수정
+```python
+def get(self, request):
+        user_data = Users.objects.values()
+        # user_data는 query set 형태이므로 객체 형태로 만들어서 출력해주기 위해서는 list로 만들어주어야 함
+		    return JsonResponse({&amp;#39;users&amp;#39;:list(user_data)}, status=200)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;참고) 서버 띄우기 &lt;code class=&quot;language-text&quot;&gt;python manage.py runserver 포트번호&lt;/code&gt; 후 &lt;code class=&quot;language-text&quot;&gt;로컬주소/포트번호/앱이름&lt;/code&gt;으로 접속하면 입력한 데이터 확인 가능&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;어려웠던-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%A0%A4%EC%9B%A0%EB%8D%98-%EC%A0%90&quot; aria-label=&quot;어려웠던 점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어려웠던 점&lt;/h3&gt;
+&lt;p&gt;csrf 에러가 발생해 settings.py 내 &lt;code class=&quot;language-text&quot;&gt;MIDDLEWARE&lt;/code&gt; 항목 중 csrf 관련 부분을 주석처리 했지만 계속 에러가 발생했다. 이거 때문인가? 저거 때문인가? 하면서 이것저것 설정을 바꾸다보니 403부터 500까지 다채로운 에러를 만났다. 하지만 문제는 오탈자 때문이었다. &lt;code class=&quot;language-text&quot;&gt;Users&lt;/code&gt;로 작성했어야 하는 걸 &lt;code class=&quot;language-text&quot;&gt;User&lt;/code&gt;로 작성했던 것… 에러 중 에러는 역시 휴먼에러다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Daily log - 17일차]]></title><description><![CDATA[2020년 6월 10일 수요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day17</link><guid isPermaLink="false">https://nanaon.github.io/posts/day17</guid><pubDate>Wed, 10 Jun 2020 20:31:32 GMT</pubDate><content:encoded>&lt;br&gt;
 &lt;p&gt;&lt;img src=&quot;/media/200610-day17.JPG&quot; alt=&quot;day17&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;오전-10시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%A0%84-10%EC%8B%9C&quot; aria-label=&quot;오전 10시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오전 10시&lt;/h3&gt;
 &lt;p&gt;코드카타 3일차 진행. 문제를 못 풀더라도 시작하고 1시간 지났을 때 과감하게 덮어야 하는데 조금만 더하면 풀릴 것 같아서 포기할 수 없었다. 결국 12시 가까이 되어서야 풀었고 오전은 이렇게 바이바이.&lt;/p&gt;
@@ -9,7 +101,7 @@
 &lt;h3 id=&quot;오후-4시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%ED%9B%84-4%EC%8B%9C&quot; aria-label=&quot;오후 4시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오후 4시&lt;/h3&gt;
 &lt;p&gt;산란한 정신을 붙잡고 장고 레플릿 시작. 아직 코드 따라 치는 수준에서 벗어나지 못했지만 하나하나 뜯어보자니 끝도 없을 것 같아서 일단 해보면서 익히기로 했다. ‘그걸 모를 때도 있었지~’ 할 날이 오겠지?&lt;/p&gt;
 &lt;h3 id=&quot;저녁&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%80%EB%85%81&quot; aria-label=&quot;저녁 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;저녁&lt;/h3&gt;
-&lt;p&gt;HTTP 관련 내용 정리하고 위스타그램 실습 시작한다. 내일 끝낼 수 있었으면 좋겠네.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Web - HTTP 기초]]></title><description><![CDATA[HTTP 구조와 핵심 요소]]></description><link>https://nanaon.github.io/posts/til33</link><guid isPermaLink="false">https://nanaon.github.io/posts/til33</guid><pubDate>Wed, 10 Jun 2020 15:20:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;http란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http%EB%9E%80&quot; aria-label=&quot;http란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP란?&lt;/h3&gt;
+&lt;p&gt;HTTP 관련 내용 정리하고 위스타그램 실습 전에 레플릿으로 조작해서 띄웠던 users 페이지를 터미널과 httpie만으로 띄웠다. 403부터 500까지 다채로운 에러가 펼쳐졌고(…) 왜 가이드를 따라했는데 안 되냐며 성을 쾅쾅 냈다. 근데 역시 에러 중 에러는 뭐다? 휴먼에러다! 빼먹은 s자 채워넣으니 잘 돌아가네… 역시 컴퓨터는 거짓말을 하지 않는다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Web - HTTP 기초]]></title><description><![CDATA[HTTP 구조와 핵심 요소]]></description><link>https://nanaon.github.io/posts/til33</link><guid isPermaLink="false">https://nanaon.github.io/posts/til33</guid><pubDate>Wed, 10 Jun 2020 15:20:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;http란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http%EB%9E%80&quot; aria-label=&quot;http란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP란?&lt;/h3&gt;
 &lt;p&gt;HyperText Transfer Protocol 줄임말로, 하이퍼텍스트 문서(HTML)를 교환하기 위해 만들어진 통신 규약(protocol)이다. 즉, 웹 상에서 클라이언트와 서버 간 혹은 서버끼리 통신을 할 때 어떤 방식으로 할지 정해놓은 규칙이다. 주소 맨 앞에 있는 &lt;code class=&quot;language-text&quot;&gt;http://&lt;/code&gt; 가 이 프로토콜로 정보를 교환하겠다는 뜻이다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;http-특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;http 특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 특징&lt;/h3&gt;
@@ -36,31 +128,31 @@ DELETE - 삭제 (예: 글 삭제)&lt;br&gt;
 &lt;p&gt;&lt;strong&gt;request target uri&lt;/strong&gt;란 해당 request가 전송되는 목표 uri다. &lt;code class=&quot;language-text&quot;&gt;https://www.naver.com/NOTICE&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;/NOTICE&lt;/code&gt; 부분이다.&lt;/p&gt;
 &lt;h4 id=&quot;headers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers&quot; aria-label=&quot;headers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Headers&lt;/h4&gt;
 &lt;p&gt;해당 request에 대한 추가 정보를 담고 있는 부분이다. Host, User-Agent, Accept, Connection, Content-Type, Content-Length, Date, Connection, Cache-Control, Content-Language, Content-Encoding 등의 key가 있고, 해당하는 value가 &lt;code class=&quot;language-text&quot;&gt;key:value&lt;/code&gt; 형태로 표시된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Accept: */*
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Accept: */*
 Accept-Encoding: gzip, deflate
 Connection: keep-alive
 Content-Type: application/json
-Content-Length: 257
-Host: google.com #접속한 주소
+Content-Length: &lt;span class=&quot;token number&quot;&gt;257&lt;/span&gt;
+Host: google.com &lt;span class=&quot;token comment&quot;&gt;#접속한 주소&lt;/span&gt;
 User-Agent: HTTPie/0.9.3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4 id=&quot;body&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#body&quot; aria-label=&quot;body permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Body&lt;/h4&gt;
 &lt;p&gt;request 실제 내용이 담기는 부분이다. 회원 가입 시 사용자가 이름, 아이디, 비밀번호 값을 입력한다고 할 때 body에 이 정보가 담겨 POST 메서드로 서버에 전송된다. 있는 것을 불러오기만 하는 GET request는 대부분 body가 없다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /payment-sync HTTP/1.1
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;POST /payment-sync HTTP/1.1
 
 Accept: application/json
 Accept-Encoding: gzip, deflate
 Connection: keep-alive
-Content-Length: 83
+Content-Length: &lt;span class=&quot;token number&quot;&gt;83&lt;/span&gt;
 Content-Type: application/json
 Host: intropython.com
 User-Agent: HTTPie/0.9.3
 
-# body 부분
-{
-    &amp;quot;imp_uid&amp;quot;: &amp;quot;imp_1234567890&amp;quot;,
-    &amp;quot;merchant_uid&amp;quot;: &amp;quot;order_id_8237352&amp;quot;,
-    &amp;quot;status&amp;quot;: &amp;quot;paid&amp;quot;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token comment&quot;&gt;# body 부분&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;imp_uid&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;imp_1234567890&quot;&lt;/span&gt;,
+    &lt;span class=&quot;token string&quot;&gt;&quot;merchant_uid&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;order_id_8237352&quot;&lt;/span&gt;,
+    &lt;span class=&quot;token string&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;paid&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;http-response-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-response-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;http response 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP Response 구조&lt;/h3&gt;
 &lt;ul&gt;
