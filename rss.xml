@@ -1,6 +1,227 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 14 Jun 2020 07:55:04 GMT</lastBuildDate><item><title><![CDATA[django - 스타벅스 음료 메뉴 모델링 실습]]></title><description><![CDATA[Aquery로 모델링한 것을 바탕으로 스타벅스 메뉴 모델링 및 데이터 테이블 생성하기 실습]]></description><link>https://nanaon.github.io/posts/til38</link><guid isPermaLink="false">https://nanaon.github.io/posts/til38</guid><pubDate>Sat, 13 Jun 2020 21:57:32 GMT</pubDate><content:encoded>&lt;p&gt;이번 실습에서 집중한 것은 데이터 테이블 생성, Foreign key 사용하기, 데이터 신규 입력, 추가, 삭제다.
-먼저 아래처럼 Aquery로 모델링을 했다. models.py에서 어떤 클래스를 생성할지, 어느 테이블을 Foreign key로 연결할지 구조를 잡아둔 뒤 코드를 작성하면 훨씬 명확해서 시행착오를 줄여준다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/aquery-sb.png&quot; alt=&quot;aquery&quot;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 14 Jun 2020 12:29:32 GMT</lastBuildDate><item><title><![CDATA[Daily log - 21일차]]></title><description><![CDATA[2020년 6월 14일 일요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day21</link><guid isPermaLink="false">https://nanaon.github.io/posts/day21</guid><pubDate>Sun, 14 Jun 2020 22:14:32 GMT</pubDate><content:encoded>&lt;br&gt;
+&lt;p&gt;&lt;img src=&quot;/media/200614-day21.JPG&quot; alt=&quot;day21&quot;&gt;
+&lt;em&gt;&lt;center&gt;눈물 파티가 되어버린 나의 코드&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;오전-11시--오후-2시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%A0%84-11%EC%8B%9C--%EC%98%A4%ED%9B%84-2%EC%8B%9C&quot; aria-label=&quot;오전 11시  오후 2시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오전 11시 ~ 오후 2시&lt;/h3&gt;
+&lt;p&gt;스타벅스 데이터 테이블 실습을 이어서 진행했다. 은근히 foreign key 연결하는 것이 헷갈려서 생각보다 시간이 오래 걸렸다. 그 외 자잘한 오류는 덤. 오류가 나를 성장케 하리라… 가장 짜릿한 순간은 내가 넣은 데이터를 sqlite에서 테이블로 확인할 때였다. 내가 했지만 진짜 신통방통 대견함.&lt;/p&gt;
+&lt;h3 id=&quot;오후-2시--오후-5시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%ED%9B%84-2%EC%8B%9C--%EC%98%A4%ED%9B%84-5%EC%8B%9C&quot; aria-label=&quot;오후 2시  오후 5시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오후 2시 ~ 오후 5시&lt;/h3&gt;
+&lt;p&gt;스타벅스 실습 내용을 블로그에 정리했다. 시간이 오래 걸리고 다소 지루한 작업이지만 정리를 하고 넘어가는 것과 안 하고 것은 천지차이다. 내가 짠 코드를 내가 다시 보는 건데도 신기하게도 새로 배우는 것이 생긴다. 그리고 이런 코드를 쓴 의도를 다시 한 번 짚고 넘어가는 게 의미있기도 하고.&lt;/p&gt;
+&lt;p&gt;아무래도 아직까진 모르는 게 더 많다보니 구글링 해서 참고할만한 코드를 가져오기도 하는데, 그냥 복사-붙여넣기만 하면 내것으로 만들 수 없다. 내가 여기서 이 코드를 왜 썼는지 다른 사람에게 설명할 수 있어야 다음에 그 코드를 응용할 수 있다. 블로깅하면서 회고하는 것이 내것으로 만드는 데에 가장 효과적이다.&lt;/p&gt;
+&lt;h3 id=&quot;오후-5시--10시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%ED%9B%84-5%EC%8B%9C--10%EC%8B%9C&quot; aria-label=&quot;오후 5시  10시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오후 5시 ~ 10시&lt;/h3&gt;
+&lt;p&gt;회원가입, 로그인 기능 구현 실습 내용을 블로그에 정리했다. 모든 코드를 참고 자료 없이 작성할 정도로 줄줄 외운 것은 아니지만 이런 흐름으로 기능이 굴러가는구나~를 체득했다. 이제 여기에 살을 붙이고 가지를 뻗으면 더 많은 기능을 구현할 수 있는 거겠지. 꺾이지 말고 버티자 화이팅!!!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[django - 회원가입, 로그인, 댓글 기능 구현 실습 1]]></title><description><![CDATA[회원가입, 로그인, 댓글 작성 기능을 구현하고 데이터베이스에서 원하는 데이터를 불러오기 실습]]></description><link>https://nanaon.github.io/posts/til37</link><guid isPermaLink="false">https://nanaon.github.io/posts/til37</guid><pubDate>Sun, 14 Jun 2020 22:00:32 GMT</pubDate><content:encoded>&lt;p&gt;회원가입, 로그인, 댓글 작성 기능을 하는 엔드포인트를 구현하고 httpie로 회원가입, 로그인 테스트를 진행했다.
+기능을 기반으로 앱을 분리해서 작업했기 때문에 회원가입, 로그인이 이루어질 users 앱을 생성하고, 댓글 작성 및 확인이 이루어질 comments 앱을 생성했다.&lt;/p&gt;
+&lt;h3 id=&quot;회원가입과-로그인-user앱에서-진행&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EA%B3%BC-%EB%A1%9C%EA%B7%B8%EC%9D%B8-user%EC%95%B1%EC%97%90%EC%84%9C-%EC%A7%84%ED%96%89&quot; aria-label=&quot;회원가입과 로그인 user앱에서 진행 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;회원가입과 로그인 (user앱에서 진행)&lt;/h3&gt;
+&lt;p&gt;먼저 models.py에서 데이터 저장에 앞서 필요한 데이터 테이블 틀을 잡았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# 가입 시 아이디(username)와 비밀번호(password) 정보를 받아야 하므로&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# user_data 테이블에 username열과 password열을 만들어줌&lt;/span&gt;
+  username &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  password &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    db_table &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;user_data&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 다음 views.py에서 사용자가 회원가입 페이지와 로그인 페이지로 들어왔을 때 어떤 화면을 보여줄지 설정해준다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; json
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; View
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; HttpResponse
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Users
+
+&lt;span class=&quot;token comment&quot;&gt;# /users/로 들어왔을 때 출력되는 화면&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MainView&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Welcome to&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Westagram&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Sign-up&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/users/sign-up&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Log-in&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/users/log-in&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# /users/sign-up/에서 액션에 따라 띄워줄 화면 설정&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SignUpView&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# 데이터를 입력하는 것이므로 get이 아닌 post 메서드를 사용한다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; json&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loads&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        
+    &lt;span class=&quot;token comment&quot;&gt;# 유저가 입력한 데이터인 data[&apos;username&apos;]과 data[&apos;password&apos;]이&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;# 각각 username과 password 열에 저장된다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      Users&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        username &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        password &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;password&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;save&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# 에러가 발생하면 401코드와 함께 지정한 메시지를 띄운다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;INVALID_ID&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# 에러가 발생하지 않고 잘 작동하면 200코드와 함께 지정한 메시지를 띄운다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonReponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;WELCOME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    
+  &lt;span class=&quot;token comment&quot;&gt;# /users/sign-up/을 호출했을 때 출력되는 화면&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Please&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Sign-up&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# /users/log-in/에서 액션에 따라 띄워줄 화면 설정&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;LogInView&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# 데이터를 입력하는 것이므로 get이 아닌 post 메서드를 사용한다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; json&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loads&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;# sign-up과는 달리 데이터를 신규로 입력하는 것이 아니므로 .save()는 쓰지 않는다.&lt;/span&gt;
+    Users&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      username &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      password &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;password&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;token comment&quot;&gt;# 아이디가 유효하면 비밀번호가 유효한지 검사하고,&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;# 아이디나 비밀번호가 유효하지 않다면 401코드와 함께 지정한 메시지를 띄운다.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;# 아이디와 비밀번호가 모두 일치한다면 200코드와 함께 지정한 메시지를 띄운다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; Users&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exists&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        user_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Users&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;password&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; user_id&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;WELCOME, &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;INVALID_USER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;INVALID_USER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;INVALID_USER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;# 로그인 정보를 받아서 입력한 유저의 정보만을 호출하고 싶었으나 아래처럼 하면 에러 발생&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    login_data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Users&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;values&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; JsonResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;user&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;login_data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; status&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서 화면 별 액션을 설정해주었으므로 유저가 접속한 url과 views.py 파일을 연결해준다. 앱 디렉토리 안에는 urls.py가 없으므로 새로 만들어서 내용을 입력해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; path
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MainView&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SignUpView&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; LogInView
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# /users/ 페이지에서는 MainView를 띄워준다.&lt;/span&gt;
+  path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MainView&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;as_view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# /users/sign-up/ 페이지에서는 SignUpView를 띄워준다.&lt;/span&gt;
+  path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;sign-up/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SignUpView&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;as_view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# /users/log-in/ 페이지에서는 LogInView를 띄워준다.&lt;/span&gt;
+  path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;log-in/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; LogInView&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;as_view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;/users/ 페이지와 /comments/ 페이지 호출이 왔을 경우 해당 페이지로 넘어갈 수 있도록 메인 디렉토리의 urls.py에서 연결해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;contrib &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; admin
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;users/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;users.urls&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;comments/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;comments.urls&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;회원가입-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;회원가입 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;회원가입 테스트&lt;/h3&gt;
+&lt;p&gt;데이터 입력(=회원가입)은 python shell과 sqlite3에서 진행했고, 테스트는 httpie로 진행했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# username과 password 입력하기 (가입)
+&amp;gt;&amp;gt;&amp;gt; Users.objects.create(username=&amp;#39;test1&amp;#39;, password=&amp;#39;test1234&amp;#39;)
+
+# 출력값(객체 생성)
+&amp;lt;Users: Users object (1)&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;sqlite에서 테이블에 잘 들어갔나 확인을 해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;select * from user_data;
+
+# 출력값
+id          username    password
+----------  ----------  ----------
+1           test1       test1234&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;같은 아이디로 가입을 시도하면 401코드 에러가 떠야한다. 이미 가입했던 test1 아이디로 가입 시도를 해보겠다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;http &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;v http&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;users&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;sign&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;up&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test1 password&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test1234&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그럼 아래와 같은 결과값을 출력한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# request 메시지의 start line
+POST /users/sign-up/ HTTP/1.1
+Accept: application/json, */*;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+Host: 127.0.0.1:8001
+User-Agent: HTTPie/2.1.0
+
+{
+    &amp;quot;password&amp;quot;: &amp;quot;test1234&amp;quot;,
+    &amp;quot;username&amp;quot;: &amp;quot;test1&amp;quot;
+}
+
+# response 메시지의 start line
+# 가입에 실패했으므로 에러코드 401 리턴
+HTTP/1.1 401 Unauthorized
+Content-Length: 25
+Content-Type: application/json
+Date: Sun, 14 Jun 2020 12:07:21 GMT
+Server: WSGIServer/0.2 CPython/3.8.3
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+
+# 에러코드 401과 리턴하기로 설정한 메시지
+{
+    &amp;quot;message&amp;quot;: &amp;quot;INVALID_ID&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;로그인-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;로그인 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;로그인 테스트&lt;/h3&gt;
+&lt;p&gt;테스트는 터미널 상에서 httpie로 진행했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;http &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;v http&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;users&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;log&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test1 password&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test1234&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# request 메시지의 start line
+POST /users/log-in/ HTTP/1.1
+Accept: application/json, */*;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 45
+Content-Type: application/json
+Host: 127.0.0.1:8001
+User-Agent: HTTPie/2.1.0
+
+{
+    &amp;quot;password&amp;quot;: &amp;quot;test1234&amp;quot;,
+    &amp;quot;username&amp;quot;: &amp;quot;test1&amp;quot;
+}
+
+# response 메시지의 start line
+# 로그인에 성공했으므로 200 코드 리턴
+HTTP/1.1 200 OK
+Content-Length: 29
+Content-Type: application/json
+Date: Sun, 14 Jun 2020 12:10:59 GMT
+Server: WSGIServer/0.2 CPython/3.8.3
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+
+# 200 코드와 함께 리턴하기로 설정한 메시지
+{
+    &amp;quot;message&amp;quot;: &amp;quot;WELCOME, test1&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아이디나 비밀번호가 틀릴 때도 테스트 해보았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;http &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;v http&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;users&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;log&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test1 password&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;test123&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# request 메시지의 start line
+POST /users/log-in/ HTTP/1.1
+Accept: application/json, */*;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 44
+Content-Type: application/json
+Host: 127.0.0.1:8001
+User-Agent: HTTPie/2.1.0
+
+{
+    &amp;quot;password&amp;quot;: &amp;quot;test123&amp;quot;,
+    &amp;quot;username&amp;quot;: &amp;quot;test1&amp;quot;
+}
+
+# response 메시지의 start line
+# 로그인에 실패했으므로 에러코드 401 리턴
+HTTP/1.1 401 Unauthorized
+Content-Length: 27
+Content-Type: application/json
+Date: Sun, 14 Jun 2020 12:19:01 GMT
+Server: WSGIServer/0.2 CPython/3.8.3
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+
+# 에러코드 401과 리턴하기로 설정한 메시지
+{
+    &amp;quot;message&amp;quot;: &amp;quot;INVALID_USER&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;코멘트 기능 실습 내용은 다음 글에 이어서 기록하겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[django - 스타벅스 음료 메뉴 모델링 실습]]></title><description><![CDATA[Aquery로 모델링한 것을 바탕으로 스타벅스 메뉴 모델링 및 데이터 테이블 생성하기 실습]]></description><link>https://nanaon.github.io/posts/til36</link><guid isPermaLink="false">https://nanaon.github.io/posts/til36</guid><pubDate>Sun, 14 Jun 2020 16:55:32 GMT</pubDate><content:encoded>&lt;p&gt;이번 실습에서 집중한 것은 데이터 테이블 생성, Foreign key 사용하기, 데이터 신규 입력, 추가, 삭제다.
+먼저 아래처럼 &lt;a href=&quot;https://aquerytool.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Aquery&lt;/a&gt;로 모델링했다. models.py에서 어떤 클래스를 생성할지, 어느 테이블을 Foreign key로 연결할지 구조를 잡아둔 뒤 코드를 작성하면 어떤 클래스에 어떤 필드명으로 만들어야 할지 훨씬 명확해서 시행착오를 줄여준다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/aquery-sb.png&quot; alt=&quot;aquery&quot;&gt;
+&lt;em&gt;&lt;center&gt;Aquery 사용 예시&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;데이터-테이블-구조-짜기-foreign-key-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%85%8C%EC%9D%B4%EB%B8%94-%EA%B5%AC%EC%A1%B0-%EC%A7%9C%EA%B8%B0-foreign-key-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;데이터 테이블 구조 짜기 foreign key 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 테이블 구조 짜기, Foreign key 사용하기&lt;/h3&gt;
 &lt;p&gt;해당하는 앱의 models.py 파일에서 데이터 테이블 이름, 열(필드) 이름, 필드값이 될 데이터 타입과 속성 등을 정의해준다.&lt;/p&gt;
@@ -14,7 +235,8 @@
 
 &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Category&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
   menu &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ForeignKey&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Menu&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; on_delete&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CASCADE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;# menu열은 Menu라는 클래스에서 생성한 menu 테이블 데이터를 끌어다 쓴다. 모든 데이터는 고유 id값을 가지고 있기 때문에 그것을 기준으로 데이터를 매칭해준다.&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# menu열은 Menu라는 클래스에서 생성한 menu 테이블 데이터를 끌어다 쓴다.&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# 모든 데이터는 고유 id값을 가지고 있기 때문에 그것을 기준으로 데이터를 매칭해준다.&lt;/span&gt;
   name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 
   &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -22,11 +244,11 @@
 &lt;br&gt;
 &lt;h3 id=&quot;데이터-테이블-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;데이터 테이블 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 테이블 생성하기&lt;/h3&gt;
 &lt;p&gt;manage.py 파일을 이용할 것이므로 manage.py 파일이 있는 위치에서 실행해준다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# 변경 사항 감지해서 migrations 디렉토리 내에 initial 파일 생성
-python manage.py makemigrations
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 변경 사항 감지해서 migrations 디렉토리 내에 initial 파일 생성&lt;/span&gt;
+python manage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;py makemigrations
 
-# makemigtaions를 통해 감지한 변경 사항을 반영해 DB에 테이블을 새로 생성하거나 테이블 이름, 열 이름 등을 변경함
-python manage.py migrate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token comment&quot;&gt;# makemigtaions를 통해 감지한 변경 사항을 반영해 DB에 테이블을 새로 생성하거나 테이블 이름, 열 이름 등을 변경함&lt;/span&gt;
+python manage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;py migrate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;데이터-신규-입력&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%A0%EA%B7%9C-%EC%9E%85%EB%A0%A5&quot; aria-label=&quot;데이터 신규 입력 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 신규 입력&lt;/h3&gt;
 &lt;p&gt;장고에 기본으로 내장된 python shell을 사용했다. 데이터를 밀어넣기 위해 models.py 파일 안 클래스들을 최초 1회 import 해야한다.&lt;/p&gt;
@@ -41,8 +263,8 @@ python manage.py migrate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;입력한-데이터-확인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%85%EB%A0%A5%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%99%95%EC%9D%B8&quot; aria-label=&quot;입력한 데이터 확인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;입력한 데이터 확인&lt;/h3&gt;
 &lt;p&gt;입력한 데이터는 장고 내장 DB인 sqlite3를 이용했다. 표 형태로 보기 위해서 사전에 아래 명령어를 입력해줬다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;headers. on
-mode. column&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;.headers on
+.mode column&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# migrate로 생성한 모든 테이블 목록
 .tables
 
@@ -127,8 +349,22 @@ id          name         category_id  size_id     nutrition_id
 ----------  -----------  -----------  ----------  ------------
 1           나이트로 바닐라 크림  1                        1
 2           나이트로 쇼콜라 클라  1            1           2
-3           아이스 커피       2            1           3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Daily log - 20일차]]></title><description><![CDATA[2020년 6월 13일 토요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day20</link><guid isPermaLink="false">https://nanaon.github.io/posts/day20</guid><pubDate>Sat, 13 Jun 2020 21:14:32 GMT</pubDate><content:encoded>&lt;br&gt;
-&lt;p&gt;&lt;img src=&quot;/media/200613-day20.JPG&quot; alt=&quot;day19&quot;&gt;
+3           아이스 커피       2            1           3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;번외---삭제한-열과-동일한-id값으로-다시-데이터-저장하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8---%EC%82%AD%EC%A0%9C%ED%95%9C-%EC%97%B4%EA%B3%BC-%EB%8F%99%EC%9D%BC%ED%95%9C-id%EA%B0%92%EC%9C%BC%EB%A1%9C-%EB%8B%A4%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0&quot; aria-label=&quot;번외   삭제한 열과 동일한 id값으로 다시 데이터 저장하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번외 - 삭제한 열과 동일한 id값으로 다시 데이터 저장하기&lt;/h3&gt;
+&lt;p&gt;size 테이블의 첫 번째 열(id값 1)을 삭제한 뒤 다시 id값이 1인 데이터를 입력하는 방법이다. 위에서 썼던 &lt;code class=&quot;language-text&quot;&gt;filter&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;update&lt;/code&gt;로 입력하려고 했으나 &lt;code class=&quot;language-text&quot;&gt;id=1&lt;/code&gt;인 데이터 자체가 없으므로 필터에서 걸리지 않아 실패. 아예 size 테이블에 &lt;code class=&quot;language-text&quot;&gt;id=1&lt;/code&gt;인 열을 만들어주고 데이터를 밀어넣었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;s&quot;&gt;&lt;pre class=&quot;language-s&quot;&gt;&lt;code class=&quot;language-s&quot;&gt;# size 테이블에서 id값이 1인 열 전체 삭제
+&amp;gt;&amp;gt;&amp;gt; Size.objects.filter(id=1).delete()
+
+# 사이즈 테이블에 id값이 1인 열 생성
+&amp;gt;&amp;gt;&amp;gt; Size().id = 1
+&amp;gt;&amp;gt;&amp;gt; Size().save()
+
+# 사이즈 테이블에서 id값이 1인 열에 데이터 저장
+&amp;gt;&amp;gt;&amp;gt; Size.objects.filter(id=1).update(name=&amp;#39;Tall(톨)&amp;#39;, size_ml=355, size_oz=12)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;어려웠던-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%A0%A4%EC%9B%A0%EB%8D%98-%EC%A0%90&quot; aria-label=&quot;어려웠던 점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어려웠던 점&lt;/h3&gt;
+&lt;p&gt;Aquery로 구조를 미리 짜놓은 덕분에 models.py에서 클래스 생성하는 것은 어렵지 않았다. 다만 데이터를 신규로 입력할 때 fk 부분에서 많이 헤맸다. Query set 형태 말고 객체 형태로 넣어줘야 한다는 것을 수 번 시행착오를 겪은 뒤에 깨달았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Daily log - 20일차]]></title><description><![CDATA[2020년 6월 13일 토요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day20</link><guid isPermaLink="false">https://nanaon.github.io/posts/day20</guid><pubDate>Sat, 13 Jun 2020 21:14:32 GMT</pubDate><content:encoded>&lt;br&gt;
+&lt;p&gt;&lt;img src=&quot;/media/200613-day20.jpg&quot; alt=&quot;day20&quot;&gt;
 &lt;em&gt;&lt;center&gt;세상에서 제일 해로운 실은 ‘근손실’&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&quot;오전-10시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%A0%84-10%EC%8B%9C&quot; aria-label=&quot;오전 10시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오전 10시&lt;/h3&gt;
 &lt;p&gt;일주일 중 유일하게 마음 편하게 운동할 수 있는 날. 허리 때문에 오래 쉬다가 오랜만에 이틀 연속 운동하니까 살짝 피곤하다. 코드 쳐야하는 소중한 시간에 내가 이러고 있어도 되나 조금 혼란스럽기도 했지만 오래 앉아있으려면 체력도 중요하니까 운동을 놓을 수가 없다. 운동 안 하면 바로 허물어질 것을 아니까 포기할 수 없어…&lt;/p&gt;
@@ -137,7 +373,7 @@ id          name         category_id  size_id     nutrition_id
 &lt;p&gt;얼기설기 기워 만든 누더기지만 만드는 과정 전체를 훑으니 이제 좀 장고라는 것이 눈에 들어온다. 내일 처음부터 다시 해봐야지. 많이 반복할수록 속도도 빨라질테니까. 고3 때도 잘 안 하던 반복학습을 3n살 되어서야 합니다. 역시 급하면 알아서 잘 한다.&lt;/p&gt;
 &lt;h3 id=&quot;오후-8시--9시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%ED%9B%84-8%EC%8B%9C--9%EC%8B%9C&quot; aria-label=&quot;오후 8시  9시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오후 8시 ~ 9시&lt;/h3&gt;
 &lt;p&gt;스타벅스 모델링 작업을 시작했다. Aquery로 한 모델링을 이제 본격적으로 구현한다. 미리 테이블 구조를 짜놓으니 models.py 파일을 깔끔하게 작성할 수 있었다. 여태까지 배운 모든 것이 이렇게 유기적으로 맞아들어갈 때 희열을 느낀다. 누덕누덕하던 이전 프로젝트에 비해서는 상당히 군더더기 없이 진행하고 있다. 내일 마저 끝내고 다시 위스타그램 기능 구현을 해볼 예정이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Daily log - 19일차]]></title><description><![CDATA[2020년 6월 12일 금요일에는 이것을 했습니다.]]></description><link>https://nanaon.github.io/posts/day19</link><guid isPermaLink="false">https://nanaon.github.io/posts/day19</guid><pubDate>Fri, 12 Jun 2020 22:10:32 GMT</pubDate><content:encoded>&lt;br&gt;
-&lt;p&gt;&lt;img src=&quot;/media/200612-day20.JPG&quot; alt=&quot;day20&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/media/200612-day19.JPG&quot; alt=&quot;day19&quot;&gt;
 &lt;em&gt;&lt;center&gt;장래희망: 예스맵시 백엔드 개발자&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&quot;오전-10시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%A0%84-10%EC%8B%9C&quot; aria-label=&quot;오전 10시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오전 10시&lt;/h3&gt;
 &lt;p&gt;코드카타 5일차 진행. 거의 오전 내내 매달렸지만 진짜 진짜 진짜 몰라서 처음으로 포기했다. 나중에 머리가 신선할 때나 좀 더 지식이 쌓이면 다시 시도해봐야지. 접근법은 대~충 맞는데 그걸 섬세하게 풀어내는 마지막 힘이 모자랐다. 이런 힘은 어떻게 기를 수 있는 거지?&lt;/p&gt;
