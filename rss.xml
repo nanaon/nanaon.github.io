@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jun 2020 04:55:16 GMT</lastBuildDate><item><title><![CDATA[django - 프로젝트 초기 세팅]]></title><description><![CDATA[장고 프로젝트 진행 전 해야할 초기 세팅]]></description><link>https://nanaon.github.io/posts/til42</link><guid isPermaLink="false">https://nanaon.github.io/posts/til42</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h3 id=&quot;설치-및-세팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%B8%ED%8C%85&quot; aria-label=&quot;설치 및 세팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치 및 세팅&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jun 2020 05:42:19 GMT</lastBuildDate><item><title><![CDATA[django - 프로젝트 초기 세팅]]></title><description><![CDATA[장고 프로젝트 진행 전 해야할 초기 세팅]]></description><link>https://nanaon.github.io/posts/til42</link><guid isPermaLink="false">https://nanaon.github.io/posts/til42</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h3 id=&quot;설치-및-세팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%B8%ED%8C%85&quot; aria-label=&quot;설치 및 세팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치 및 세팅&lt;/h3&gt;
 &lt;ol start=&quot;0&quot;&gt;
 &lt;li&gt;mysql 실행&lt;/li&gt;
 &lt;/ol&gt;
@@ -25,8 +25,14 @@
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;pip install mysqlclient&lt;/code&gt;&lt;/p&gt;
 &lt;ol start=&quot;6&quot;&gt;
 &lt;li&gt;기타 필요한 프로그램 설치&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;ol start=&quot;7&quot;&gt;
 &lt;li&gt;git ignore 설정
 gitignore.io에서 django, python, macos 추가하고 파일 받아오기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;ol start=&quot;8&quot;&gt;
 &lt;li&gt;manage.py 있는 디렉토리(=프로젝트 디렉토리)에서 .gitignore 생성 후 붙여넣기&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;vi .gitignore&lt;/code&gt;&lt;/p&gt;
@@ -72,6 +78,9 @@ DATABASE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; my_settings
 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;12&quot;&gt;
 &lt;li&gt;settings.py의 INSTALLED_APP과 MIDDLEWARE에서 admin, csrf 관련 항목 주석처리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;ol start=&quot;13&quot;&gt;
 &lt;li&gt;3000포트(프론트)에서도 접속할 수 있도록 cors 설치&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;pip install django-cors-headers&lt;/code&gt;&lt;/p&gt;
