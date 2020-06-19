@@ -58,74 +58,136 @@
 
         gtag('config', 'UA-73379983-2', {"send_page_view":false});
       }
-      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><title data-react-helmet="true">python - 데코레이터 복습 - Naon&#x27;s log</title><meta data-react-helmet="true" name="description" content="로그인 데코레이터를 구현하기 전 데코레이터 실행 순서 짚고 넘어가기"/><meta data-react-helmet="true" property="og:site_name" content="python - 데코레이터 복습 - Naon&#x27;s log"/><meta data-react-helmet="true" property="og:image" content="https://nanaon.github.io/naon.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="python - 데코레이터 복습 - Naon&#x27;s log"/><meta data-react-helmet="true" name="twitter:description" content="로그인 데코레이터를 구현하기 전 데코레이터 실행 순서 짚고 넘어가기"/><meta data-react-helmet="true" name="twitter:image" content="https://nanaon.github.io/naon.png"/><link as="script" rel="preload" href="/webpack-runtime-f5ef3d628811fc9fad18.js"/><link as="script" rel="preload" href="/framework-6e11d4e07218876eea4b.js"/><link as="script" rel="preload" href="/532a2f07-5eaf3e57aa62a3931643.js"/><link as="script" rel="preload" href="/app-39290e4ef01b6c397931.js"/><link as="script" rel="preload" href="/styles-9b6f388623a2ec93d35f.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-e720f61a30524872c81e.js"/><link as="script" rel="preload" href="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js"/><link as="fetch" rel="preload" href="/page-data/posts/til42/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">python - 데코레이터 복습</h1><div class="Content-module--content__body--2TrQ-"><h3 id="함수에-데코레이터-적용-시-실행-순서" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%EC%97%90-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0-%EC%A0%81%EC%9A%A9-%EC%8B%9C-%EC%8B%A4%ED%96%89-%EC%88%9C%EC%84%9C" aria-label="함수에 데코레이터 적용 시 실행 순서 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수에 데코레이터 적용 시 실행 순서</h3>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># 실행 순서 4 - deco 함수가 실행되는데, 인자로 hello 함수를 받음</span>
-<span class="token keyword">def</span> <span class="token function">deco</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token comment"># wrapper 함수 = hello 함수</span>
-  <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># 실행 순서 5 - "start wrapper" 출력</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"start wrapper"</span><span class="token punctuation">)</span>
-    <span class="token comment"># 실행 순서 6 - hello 함수 실행</span>
-    func<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-    <span class="token comment"># 실행 순서 8 - "end wrapper" 출력</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"end wrapper"</span><span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 9 - return으로 내부 함수(여기서는 hello 함수) 자체를 반환</span>
-  <span class="token comment"># 함수 자체를 반환할 때는 () 없이 함수 이름만 써야함</span>
-  <span class="token keyword">return</span> wrapper
+      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=bc6c329d34e7a0a449dd15d683af4f77"/><title data-react-helmet="true">django - 프로젝트 초기 세팅 - Naon&#x27;s log</title><meta data-react-helmet="true" name="description" content="장고 프로젝트 진행 전 해야할 초기 세팅"/><meta data-react-helmet="true" property="og:site_name" content="django - 프로젝트 초기 세팅 - Naon&#x27;s log"/><meta data-react-helmet="true" property="og:image" content="https://nanaon.github.io/naon.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="django - 프로젝트 초기 세팅 - Naon&#x27;s log"/><meta data-react-helmet="true" name="twitter:description" content="장고 프로젝트 진행 전 해야할 초기 세팅"/><meta data-react-helmet="true" name="twitter:image" content="https://nanaon.github.io/naon.png"/><link as="script" rel="preload" href="/webpack-runtime-16cc7914a09501ac4b23.js"/><link as="script" rel="preload" href="/framework-6e11d4e07218876eea4b.js"/><link as="script" rel="preload" href="/532a2f07-5eaf3e57aa62a3931643.js"/><link as="script" rel="preload" href="/app-39290e4ef01b6c397931.js"/><link as="script" rel="preload" href="/styles-9b6f388623a2ec93d35f.js"/><link as="script" rel="preload" href="/cd95ea5cbd2c605f26db819f07999610c9ff4310-e0b8a83f4feca7df3fde.js"/><link as="script" rel="preload" href="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js"/><link as="fetch" rel="preload" href="/page-data/posts/til42/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">django - 프로젝트 초기 세팅</h1><div class="Content-module--content__body--2TrQ-"><h3 id="설치-및-세팅" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%B8%ED%8C%85" aria-label="설치 및 세팅 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치 및 세팅</h3>
+<ol start="0">
+<li>mysql 실행</li>
+</ol>
+<p><code class="language-text">mysql -u root -p</code></p>
+<ol>
+<li>mysql DB 생성</li>
+</ol>
+<p><code class="language-text">CREATE DATABASE mysql_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</code></p>
+<ol start="2">
+<li>conda 가상 환경 설정</li>
+</ol>
+<p><code class="language-text">conda create -n 가상환경명 python=3.8</code></p>
+<ol start="3">
+<li>가상 환경 실행</li>
+</ol>
+<p><code class="language-text">conda activate 가상환경명</code></p>
+<ol start="4">
+<li>장고 설치</li>
+</ol>
+<p><code class="language-text">pip install django</code></p>
+<ol start="5">
+<li>mysql client 설치</li>
+</ol>
+<p><code class="language-text">pip install mysqlclient</code></p>
+<ol start="6">
+<li>기타 필요한 프로그램 설치</li>
+<li>git ignore 설정
+gitignore.io에서 django, python, macos 추가하고 파일 받아오기</li>
+<li>manage.py 있는 디렉토리(=프로젝트 디렉토리)에서 .gitignore 생성 후 붙여넣기</li>
+</ol>
+<p><code class="language-text">vi .gitignore</code></p>
+<ol start="9">
+<li>.gitignore 파일에 설정 추가</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment">### Django ###</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+my_settings<span class="token punctuation">.</span>py
+<span class="token operator">*</span><span class="token punctuation">.</span>csv</code></pre></div>
+<ol start="10">
+<li>같은 디렉토리에서 my_settings.py 만들어서 DB 정보와 시크릿키 정보 저장</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">DATABASES <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'default'</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'django.db.backends.mysql'</span><span class="token punctuation">,</span>
+    <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'DATABASE 명'</span><span class="token punctuation">,</span>
+    <span class="token string">'USER'</span><span class="token punctuation">:</span> <span class="token string">'DB접속 계정명'</span><span class="token punctuation">,</span> <span class="token comment"># root</span>
+    <span class="token string">'PASSWORD'</span><span class="token punctuation">:</span> <span class="token string">'DB접속용 비밀번호'</span><span class="token punctuation">,</span>
+    <span class="token string">'HOST'</span><span class="token punctuation">:</span> <span class="token string">'실제 DB 주소'</span><span class="token punctuation">,</span> <span class="token comment"># 로컬에서만 작업할 거면 localhost 입력</span>
+    <span class="token string">'PORT'</span><span class="token punctuation">:</span> <span class="token string">'포트번호'</span><span class="token punctuation">,</span> <span class="token comment"># 3306</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
+SECRET <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'secret'</span><span class="token punctuation">:</span><span class="token string">'시크릿키'</span><span class="token punctuation">,</span> <span class="token comment"># 프로젝트 메인 폴더 안 settings.py에서 확인</span>
+<span class="token punctuation">}</span></code></pre></div>
+<blockquote>
+<p>DB 계정 정보와 암호화, 복호화 시 사용하는 시크릿키는 외부에 노출되면 안 되므로 별도 세팅 파일에 작성한 후 github에 올라가지 않도록 한다. 7~9번 작업이 이것을 위한 것.</p>
+</blockquote>
+<ol start="11">
+<li>settings.py에서 시크릿키값 숨기기 및 DB 설정</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">import</span> my_settings
 
-<span class="token comment"># hello 함수를 실행하려고 했는데 데코레이터로 데코레이팅 되어있음</span>
-<span class="token comment"># 실행 순서 3 - 정의된 deco 데코레이터 먼저 실행</span>
-<span class="token decorator annotation punctuation">@deco</span>           <span class="token comment"># hello = deco(hello)     # hello = wrapper</span>
-<span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># hello는 deco 의 func에 전달</span>
-  <span class="token comment"># 실행 순서 7 - "Hello" 출력</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+SECRET_KEY <span class="token operator">=</span> my_settings<span class="token punctuation">.</span>SECRET<span class="token punctuation">[</span><span class="token string">'secret'</span><span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-  <span class="token comment"># 실행 순서 1 - "main start" 출력</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"main start"</span><span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 2 - hello 함수 호출</span>
-  <span class="token comment"># 즉, deco 데코레이터 먼저 실행 후 hello 함수 실행</span>
-  hello<span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 10 - hello 함수 호출 및 리턴 과정 모두 끝내고 "main end"호출</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"main end"</span><span class="token punctuation">)</span></code></pre></div>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">main start
-start wrapper
-Hello
-end wrapper
-main end</code></pre></div>
-<br>
-<h3 id="동적으로-데이터를-추가해주는-예시" style="position:relative;"><a href="#%EB%8F%99%EC%A0%81%EC%9C%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%B6%94%EA%B0%80%ED%95%B4%EC%A3%BC%EB%8A%94-%EC%98%88%EC%8B%9C" aria-label="동적으로 데이터를 추가해주는 예시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>동적으로 데이터를 추가해주는 예시</h3>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_func</span><span class="token punctuation">(</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token comment"># 실행 순서 3 - 출력</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"kwargs="</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">print</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 4 - kwargs에 추가</span>
-  kwargs<span class="token punctuation">[</span><span class="token string">"d"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+DATABASE <span class="token operator">=</span> my_settings<span class="token punctuation">.</span>DATABASES
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<ol start="12">
+<li>settings.py의 INSTALLED_APP과 MIDDLEWARE에서 admin, csrf 관련 항목 주석처리</li>
+<li>3000포트(프론트)에서도 접속할 수 있도록 cors 설치</li>
+</ol>
+<p><code class="language-text">pip install django-cors-headers</code></p>
+<ol start="14">
+<li>settings.py INSTALLED_APP과 MIDDLEWARE에 항목 추가</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+		<span class="token string">'django.contrib.staticfiles'</span><span class="token punctuation">,</span>
+		<span class="token string">'corsheaders'</span>
+<span class="token punctuation">]</span>
 
-  <span class="token comment"># 실행 순서 5 </span>
-  <span class="token keyword">for</span> key <span class="token keyword">in</span> kwargs<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># 5-1</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"key="</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
-    <span class="token comment"># 5-2</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"value="</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">print</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+MIDDLEWARE <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+		<span class="token string">'corsheaders.middleware.CorsMiddleware'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">]</span></code></pre></div>
+<ol start="15">
+<li>settings.py 가장 아래에 cors 허용값 입력</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-  <span class="token keyword">return</span>
+<span class="token comment">##CORS</span>
+CORS_ORIGIN_ALLOW_ALL<span class="token operator">=</span><span class="token boolean">True</span>
+CORS_ALLOW_CREDENTIALS <span class="token operator">=</span> <span class="token boolean">True</span>
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-  <span class="token comment"># 실행 순서 1 - 출력</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"start"</span><span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 2</span>
-  test_func<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
-  <span class="token comment"># 실행 순서 6</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">)</span></code></pre></div>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">start <span class="token comment"># 1</span>
-kwargs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token comment"># 3</span>
-key<span class="token operator">=</span>a <span class="token comment"># 5-1</span>
-value<span class="token operator">=</span><span class="token number">1</span> <span class="token comment"># 5-2</span>
-key<span class="token operator">=</span>b <span class="token comment"># 5-1</span>
-value<span class="token operator">=</span><span class="token number">2</span> <span class="token comment"># 5-2</span>
-key<span class="token operator">=</span>c <span class="token comment"># 5-1</span>
-value<span class="token operator">=</span><span class="token number">3</span> <span class="token comment"># 5-2</span>
-key<span class="token operator">=</span>d <span class="token comment"># 5-1 동적으로 추가된 데이터</span>
-value<span class="token operator">=</span><span class="token number">4</span> <span class="token comment"># 5-2</span>
-end <span class="token comment"># 6</span></code></pre></div></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->18 Jun 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/til/">til</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/python/">python</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/wecode/">wecode</a></li></ul></div><div class="Author-module--author--2Yefr"><p>파이썬 걸음마 떼는 중. 아침부터 밤까지 코드만 칩니다.<a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"><strong>Naon</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/til42";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39290e4ef01b6c397931.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-e8e7fbb006d57d32ed40.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-8e9d064a76608cd132b8.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-6ef84ad0473f3a8be4fb.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-5abbc151a0677534378e.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-e2fdbe56546db68079ac.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-71a23ba9d69965fac924.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-12e9bc8da4304ea8a4ab.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-ba2b4f0c966d40e8d5a5.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js" async=""></script><script src="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-e720f61a30524872c81e.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-39290e4ef01b6c397931.js" async=""></script><script src="/532a2f07-5eaf3e57aa62a3931643.js" async=""></script><script src="/framework-6e11d4e07218876eea4b.js" async=""></script><script src="/webpack-runtime-f5ef3d628811fc9fad18.js" async=""></script></body></html>
+CORS_ALLOW_METHODS <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token string">'DELETE'</span><span class="token punctuation">,</span>
+    <span class="token string">'GET'</span><span class="token punctuation">,</span>
+    <span class="token string">'OPTIONS'</span><span class="token punctuation">,</span>
+    <span class="token string">'PATCH'</span><span class="token punctuation">,</span>
+    <span class="token string">'POST'</span><span class="token punctuation">,</span>
+    <span class="token string">'PUT'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+CORS_ALLOW_HEADERS <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token string">'accept'</span><span class="token punctuation">,</span>
+    <span class="token string">'accept-encoding'</span><span class="token punctuation">,</span>
+    <span class="token string">'authorization'</span><span class="token punctuation">,</span>
+    <span class="token string">'content-type'</span><span class="token punctuation">,</span>
+    <span class="token string">'dnt'</span><span class="token punctuation">,</span>
+    <span class="token string">'origin'</span><span class="token punctuation">,</span>
+    <span class="token string">'user-agent'</span><span class="token punctuation">,</span>
+    <span class="token string">'x-csrftoken'</span><span class="token punctuation">,</span>
+    <span class="token string">'x-requested-with'</span><span class="token punctuation">,</span>
+		<span class="token comment">#만약 허용해야할 추가적인 헤더키가 있다면?(사용자정의 키) 여기에 추가하면 됩니다.</span>
+<span class="token punctuation">)</span></code></pre></div>
+<ol start="16">
+<li>외부에서도 접속 가능하도록 settings.py ALLOWED_HOSTS 설정 변경</li>
+</ol>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+ALLOWED_HOSTS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'*'</span><span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<ol start="17">
+<li>서버가 잘 돌아가는지 확인</li>
+</ol>
+<p><code class="language-text">mysql.server start</code>
+<code class="language-text">python manage.py runserver 0:포트번호</code></p>
+<p>포트번호는 보통 8000이며, 외부 접속용으로 서버를 띄울 땐 포트번호 앞에 <code class="language-text">0:</code>를 붙어야 한다.</p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->Invalid date</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/til/">til</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/django/">django</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/wecode/">wecode</a></li></ul></div><div class="Author-module--author--2Yefr"><p>파이썬 걸음마 떼는 중. 아침부터 밤까지 코드만 칩니다.<a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"><strong>Naon</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/til42";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39290e4ef01b6c397931.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-e8e7fbb006d57d32ed40.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-8e9d064a76608cd132b8.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-6ef84ad0473f3a8be4fb.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-5abbc151a0677534378e.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-e2fdbe56546db68079ac.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-71a23ba9d69965fac924.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-12e9bc8da4304ea8a4ab.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-ba2b4f0c966d40e8d5a5.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-d5c2e94b57cb65b4d9ca.js" async=""></script><script src="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-e0b8a83f4feca7df3fde.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-39290e4ef01b6c397931.js" async=""></script><script src="/532a2f07-5eaf3e57aa62a3931643.js" async=""></script><script src="/framework-6e11d4e07218876eea4b.js" async=""></script><script src="/webpack-runtime-16cc7914a09501ac4b23.js" async=""></script></body></html>
