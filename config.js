@@ -23,7 +23,7 @@ module.exports = {
   author: {
     name: 'Naon',
     photo: '/naon.png',
-    bio: '파이썬 걸음마 떼는 중. 아침부터 밤까지 코드만 칩니다.',
+    bio: '파이썬과 장고 걸음마 떼는 중. 아침부터 밤까지 코드만 칩니다.',
     contacts: {
       email: 'naon.jeong@gmail.com',
       github: 'nanaon',
