@@ -4,10 +4,10 @@ module.exports = {
   url: 'https://nanaon.github.io',
   pathPrefix: '/',
   title: "Naon's log",
-  subtitle: '우당탕탕 개발 블로그',
+  subtitle: '우당탕탕 개발 공부 블로그',
   copyright: '© 2020. Naon Jeong All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 4,
+  postsPerPage: 5,
   googleAnalyticsId: 'UA-73379983-2',
   useKatex: false,
   menu: [
