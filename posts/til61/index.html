@@ -114,8 +114,8 @@ numbers<span class="token punctuation">.</span>sort<span class="token punctuatio
   numbers <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 numbers<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> numbers<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre></div>
-<p>저 의미없는 for문 두 개를 보라. for문을 한 번 돌리는 게 정해진 거라면 굳이 for문을 쓸 이유가 없지 않은가. 그리고 <code class="language-text">numbers = map(int, input().split())</code> 이 부분에서 map 객체를 list로 만들어줬어야 하는데 그 부분도 빼먹어서 런타임 에러가 났다.</p>
-<p>아무튼 map 객체를 list로 만들어줬다고 해도 시간 복잡도 측면에서 마지막에 제출한 답이 훨씬 빠르므로 처음 시도한 방법은 썩 좋은 방법이 아니다. (마지막 답안 시간 672ms, (맞게 고친) 첫 번째 답안 시간 736ms)</p>
+<p>저 의미없는 for문 두 개는 무엇… for문을 한 번 돌리는 게 정해진 거라면 굳이 for문을 쓸 이유가 없지 않은가. 그리고 <code class="language-text">numbers = map(int, input().split())</code> 이 부분에서 map 객체를 list로 만들어줬어야 하는데 그 부분도 빼먹어서 런타임 에러가 났다.</p>
+<p>아무튼 map 객체를 list로 만들어줬다고 해도 시간 복잡도 측면에서 마지막에 제출한 답이 훨씬 빠르므로 처음 시도한 방법은 썩 좋은 방법이 아니다. (최종 답안 시간 672ms, (맞게 고친) 첫 번째 답안 시간 736ms)</p>
 <p>번외로, 시간을 단축한 과정은 아래와 같다.</p>
 <ol>
 <li>700ms</li>
