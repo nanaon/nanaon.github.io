@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 공부 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 02 Sep 2020 13:10:34 GMT</lastBuildDate><item><title><![CDATA[SQL 첫걸음 - 3장 정렬과 연산]]></title><description><![CDATA[9강 정렬 - ORDER BY, 10강 복수의 열을 지정해 정렬하기]]></description><link>https://nanaon.github.io/posts/til74</link><guid isPermaLink="false">https://nanaon.github.io/posts/til74</guid><pubDate>Wed, 02 Sep 2020 07:08:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;9강-정렬---order-by&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#9%EA%B0%95-%EC%A0%95%EB%A0%AC---order-by&quot; aria-label=&quot;9강 정렬   order by permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;9강 정렬 - ORDER BY&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 공부 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 03 Sep 2020 12:13:47 GMT</lastBuildDate><item><title><![CDATA[SQL 첫걸음 - 3장 정렬과 연산]]></title><description><![CDATA[9강 정렬 - ORDER BY, 10강 복수의 열을 지정해 정렬하기]]></description><link>https://nanaon.github.io/posts/til74</link><guid isPermaLink="false">https://nanaon.github.io/posts/til74</guid><pubDate>Wed, 02 Sep 2020 07:08:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;9강-정렬---order-by&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#9%EA%B0%95-%EC%A0%95%EB%A0%AC---order-by&quot; aria-label=&quot;9강 정렬   order by permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;9강 정렬 - ORDER BY&lt;/h3&gt;
 &lt;h4 id=&quot;order-by로-검색-결과-정렬하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#order-by%EB%A1%9C-%EA%B2%80%EC%83%89-%EA%B2%B0%EA%B3%BC-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;order by로 검색 결과 정렬하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ORDER BY로 검색 결과 정렬하기&lt;/h4&gt;
 &lt;p&gt;SELECT 명령에 ORDER BY 구를 지정하면 검색 결과의 행 순서를 바꿀 수 있다.&lt;/p&gt;
 &lt;ul&gt;
@@ -541,10 +541,104 @@ E: Couldn&amp;#39;t find any package by regex &amp;#39;python3.8-dev&amp;#39;&lt
 &lt;p&gt;아래 명령어를 차례로 입력하고 모든 것이 설치된 후에 다시 mysqlclient를 설치한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo add-apt-repository ppa:jonathonf/python-3.8
 $ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;개발-서버-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C-%EC%84%9C%EB%B2%84-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;개발 서버 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발 서버 테스트&lt;/h3&gt;
+&lt;h3 id=&quot;uwsgi로-장고-서버-띄우기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#uwsgi%EB%A1%9C-%EC%9E%A5%EA%B3%A0-%EC%84%9C%EB%B2%84-%EB%9D%84%EC%9A%B0%EA%B8%B0&quot; aria-label=&quot;uwsgi로 장고 서버 띄우기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;uwsgi로 장고 서버 띄우기&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;python manage.py runserver 0:8001&lt;/code&gt;로 서버를 띄워주고 브라우저에서 확인해보는데 장고 로켓이 보이지 않는다… 서버 띄우는 과정 자체에는 문제가 없는데 뭐가 문제일까? ACG에서 8001번 포트도 허용했어야 하나 싶어서 추가해줬는데도 안 된다. 뭐가 문제지? 내일 다시 찾아보자. 세팅 진짜 너무 어렵다어흐어흐어으어우&lt;/p&gt;
 &lt;p&gt;아니다 된다! 이게 맞는진 모르겠지만 ncloud 공인 IP주소에 내 포트번호 8001을 붙이니까 로켓이 보인다 만세!!!! (8000은 개츠비 블로그에 할당해놔서 영구결번임)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/ncloud-django-rocket.png&quot; alt=&quot;django runserver test&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SQL 첫걸음 - 2장 테이블에서 데이터 검색]]></title><description><![CDATA[7강 조건 조합하기, 8강 패턴 매칭에 의한 검색]]></description><link>https://nanaon.github.io/posts/til72</link><guid isPermaLink="false">https://nanaon.github.io/posts/til72</guid><pubDate>Mon, 31 Aug 2020 07:19:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;7강-조건-조합하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7%EA%B0%95-%EC%A1%B0%EA%B1%B4-%EC%A1%B0%ED%95%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;7강 조건 조합하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7강 조건 조합하기&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/media/ncloud-django-rocket.png&quot; alt=&quot;django runserver test&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이제 uwsgi를 이용해 서버를 띄워보자. 장고 프로젝트 폴더(manage.py가 있는 폴더)에 uwsgi.ini 파일을 만들어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ vi uwsgi.ini&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[uwsgi]
+
+chdir = /root/project-test/project1
+module = project1.wsgi
+socket = /root/project-test/project1/project1.sock
+chmod-socket = 666
+vacuum = true
+home = /root/miniconda3/envs/condatest
+virtualenv = /root/miniconda3/envs/condatest
+daemonize = /root/project-test/project1/uwsgi.log
+die-on-term = true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;chdir&lt;/code&gt; : 장고 프로젝트 폴더 경로&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;module&lt;/code&gt; : 장고 프로젝트를 생성하면서 만들어진 wsgi.py 파일을 지칭&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;socket&lt;/code&gt; : 장고 프로젝트 폴더에 생성할 소켓 파일&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;home&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;virtualenv&lt;/code&gt; : 가상환경 경로. 미니콘다/아나콘다를 쓴다면 &lt;code class=&quot;language-text&quot;&gt;conda env list&lt;/code&gt;로 경로를 확인할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;daemonize&lt;/code&gt; : 장고 프로젝트 폴더에 생성할 로그 파일&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ini 파일을 만들어준 뒤 소켓 파일과 로그 파일을 생성한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ uwsgi --ini uwsgi.ini&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[uWSGI] getting INI configuration from uwsgi.ini&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;라는 메시지가 뜨면 잘 생성된 것이다. 이제 서버를 띄워보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ uwsgi --http :8001 --module project1.wsgi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;브라우저에서 ncloud 공인 IP주소 + 포트 번호로 들어가면 장고 로켓을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/ncloud-uwsgi-rocket.png&quot; alt=&quot;uwsgi server test&quot;&gt;&lt;/p&gt;
+&lt;p&gt;그냥 런서버랑 다른 로켓이다. 같아보이지만 아무튼 다르다.&lt;/p&gt;
+&lt;h4 id=&quot;nginx와-uwsgi-연동하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nginx%EC%99%80-uwsgi-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0&quot; aria-label=&quot;nginx와 uwsgi 연동하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nginx와 uwsgi 연동하기&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ vi /etc/nginx/sites-available/default&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;upstream django {
+  server unix:///root/project-test/project1/project1.sock;
+}
+
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  server_name 공인IP주소 도메인;
+  charset utf-8;
+
+  location / {
+    uwsgi_pass django;
+    include /etc/nginx/uwsgi_params;
+  }
+
+  location /static {
+    alias /root/project-test/project1/static;
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;upstream django&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;server&lt;/code&gt; 항목에는 소켓 파일 경로 지정한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;server_name&lt;/code&gt;에는 공인 IP주소와 도메인을 써준다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;location /static&lt;/code&gt;에는 장고 프로젝트 폴더 경로를 써준다. static 폴더가 생기는 모양&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo nginx -t&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 여기서 에러가 나면 default 파일에 뭔가 오타가 있거나 경로지정이 잘못된 것이다. 다시 한번 살펴보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo service nginx restart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;블로그에서는 nginx 재시작 후 공인 IP 주소로 접속하면 장고 로켓이 뜰 거라고 했는데 안 뜬다. uwsgi를 실행해줘야 한다는 블로그 글을 보고 &lt;code class=&quot;language-text&quot;&gt;sudo service uwsgi start&lt;/code&gt;를 했더니 uwsgi.service 파일이 없다 어쩌고 하더라.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Warning: uwsgi.service changed on disk. Run &amp;#39;systemctl daemon-reload&amp;#39; to reload units.
+Job for uwsgi.service failed because the control process exited with error code. See &amp;quot;systemctl status uwsgi.service&amp;quot; and &amp;quot;journalctl -xe&amp;quot; for details.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이리저리 찾아보니 uwsgi.service 파일을 만들어줬어야 했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ vi /etc/systemd/system/uwsgi.service&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[Unit]
+Description=uWSGI Emperor service
+
+[Service]
+ExecStart=/root/miniconda3/envs/condatest/bin/uwsgi \
+         --emperor /root/project-test/project1
+Restart=on-failure
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ExecStart&lt;/code&gt;에는 uwsgi경로를 쓰고 &lt;code class=&quot;language-text&quot;&gt;--emperor&lt;/code&gt;에는 장고 프로젝트 폴더 경로를 써준다. uwsgi 경로를 모르겠다면 &lt;code class=&quot;language-text&quot;&gt;which uwsgi&lt;/code&gt;로 알아낼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 uwsgi.service 파일을 만들어준 후,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo systemctl start uwsgi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;를 쳤는데, 또 같은 에러가 떴다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Warning: uwsgi.service changed on disk. Run &amp;#39;systemctl daemon-reload&amp;#39; to reload units.
+Job for uwsgi.service failed because the control process exited with error code. See &amp;quot;systemctl status uwsgi.service&amp;quot; and &amp;quot;journalctl -xe&amp;quot; for details.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;에러 메시지를 다시 잘 읽어보니 &lt;strong&gt;Run ‘systemctl daemon-reload’ to reload units.&lt;/strong&gt; 이런 말이 있네? 시키는대로 해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ systemctl daemon-reload&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo systemctl start uwsgi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo systemctl enable uwsgi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;차례로 실행 후 uwsgi가 잘 돌아가고 있는지 확인해봤다. 이전에는 Fail이라고 떴었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ systemctl status uwsgi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/media/ncloud-uwsgi-status.png&quot; alt=&quot;uwsgi status&quot;&gt;&lt;/p&gt;
+&lt;p&gt;드디어 &lt;strong&gt;active (running)&lt;/strong&gt; 글자가 보인다! 만세!&lt;/p&gt;
+&lt;p&gt;+) 근데 이제 포트번호 없이 공인 IP로만도 접속이 되어야 하는데 안 된다. 뭐가 문제인지 모르겠다. 이리저리 하라는대로 설정을 바꿔봐도 안 됨 ㅠㅠ… 내일 처음부터 다시 해봐야하나 하하&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SQL 첫걸음 - 2장 테이블에서 데이터 검색]]></title><description><![CDATA[7강 조건 조합하기, 8강 패턴 매칭에 의한 검색]]></description><link>https://nanaon.github.io/posts/til72</link><guid isPermaLink="false">https://nanaon.github.io/posts/til72</guid><pubDate>Mon, 31 Aug 2020 07:19:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;7강-조건-조합하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7%EA%B0%95-%EC%A1%B0%EA%B1%B4-%EC%A1%B0%ED%95%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;7강 조건 조합하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7강 조건 조합하기&lt;/h3&gt;
 &lt;h4 id=&quot;and&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#and&quot; aria-label=&quot;and permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AND&lt;/h4&gt;
 &lt;p&gt;복수 조건을 조합해 두 조건에 모두 해당하는 행을 찾을 때 사용한다. 집합으로 따지면 교집합을 구하는 것이다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;SELECT&lt;/strong&gt; * &lt;strong&gt;FROM&lt;/strong&gt; sample_talbe &lt;strong&gt;WHERE&lt;/strong&gt; no&amp;#x3C;&gt;1 &lt;strong&gt;AND&lt;/strong&gt; no&amp;#x3C;&gt;3;&lt;/p&gt;

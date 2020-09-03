@@ -213,7 +213,101 @@ E: Couldn&#39;t find any package by regex &#39;python3.8-dev&#39;</code></pre></
 <p>아래 명령어를 차례로 입력하고 모든 것이 설치된 후에 다시 mysqlclient를 설치한다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo add-apt-repository ppa:jonathonf/python-3.8
 $ sudo apt-get update</code></pre></div>
-<h3 id="개발-서버-테스트" style="position:relative;"><a href="#%EA%B0%9C%EB%B0%9C-%EC%84%9C%EB%B2%84-%ED%85%8C%EC%8A%A4%ED%8A%B8" aria-label="개발 서버 테스트 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>개발 서버 테스트</h3>
+<h3 id="uwsgi로-장고-서버-띄우기" style="position:relative;"><a href="#uwsgi%EB%A1%9C-%EC%9E%A5%EA%B3%A0-%EC%84%9C%EB%B2%84-%EB%9D%84%EC%9A%B0%EA%B8%B0" aria-label="uwsgi로 장고 서버 띄우기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>uwsgi로 장고 서버 띄우기</h3>
 <p><code class="language-text">python manage.py runserver 0:8001</code>로 서버를 띄워주고 브라우저에서 확인해보는데 장고 로켓이 보이지 않는다… 서버 띄우는 과정 자체에는 문제가 없는데 뭐가 문제일까? ACG에서 8001번 포트도 허용했어야 하나 싶어서 추가해줬는데도 안 된다. 뭐가 문제지? 내일 다시 찾아보자. 세팅 진짜 너무 어렵다어흐어흐어으어우</p>
 <p>아니다 된다! 이게 맞는진 모르겠지만 ncloud 공인 IP주소에 내 포트번호 8001을 붙이니까 로켓이 보인다 만세!!!! (8000은 개츠비 블로그에 할당해놔서 영구결번임)</p>
-<p><img src="/media/ncloud-django-rocket.png" alt="django runserver test"></p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->1 Sep 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/til/">til</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/ncloud/">ncloud</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"></a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/til73";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-4af6a79fcbbc83454c03.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-e8e7fbb006d57d32ed40.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-8e9d064a76608cd132b8.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-95831c232d573092c496.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-a0d7f0525551edb31f2c.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-fc6e82684d9e8c033b73.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-e859765f7256c80c8bb8.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-2c7e8184cd19accfa077.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-9f7759bb8c4d27ec099d.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-ba2b4f0c966d40e8d5a5.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-2c7e8184cd19accfa077.js" async=""></script><script src="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-9fe6ce8c459155e85da0.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-4af6a79fcbbc83454c03.js" async=""></script><script src="/532a2f07-5eaf3e57aa62a3931643.js" async=""></script><script src="/framework-6e11d4e07218876eea4b.js" async=""></script><script src="/webpack-runtime-d8dfc68c189b6132fa8b.js" async=""></script></body></html>
+<p><img src="/media/ncloud-django-rocket.png" alt="django runserver test"></p>
+<p>이제 uwsgi를 이용해 서버를 띄워보자. 장고 프로젝트 폴더(manage.py가 있는 폴더)에 uwsgi.ini 파일을 만들어준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ vi uwsgi.ini</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[uwsgi]
+
+chdir = /root/project-test/project1
+module = project1.wsgi
+socket = /root/project-test/project1/project1.sock
+chmod-socket = 666
+vacuum = true
+home = /root/miniconda3/envs/condatest
+virtualenv = /root/miniconda3/envs/condatest
+daemonize = /root/project-test/project1/uwsgi.log
+die-on-term = true</code></pre></div>
+<ul>
+<li><code class="language-text">chdir</code> : 장고 프로젝트 폴더 경로</li>
+<li><code class="language-text">module</code> : 장고 프로젝트를 생성하면서 만들어진 wsgi.py 파일을 지칭</li>
+<li><code class="language-text">socket</code> : 장고 프로젝트 폴더에 생성할 소켓 파일</li>
+<li><code class="language-text">home</code>, <code class="language-text">virtualenv</code> : 가상환경 경로. 미니콘다/아나콘다를 쓴다면 <code class="language-text">conda env list</code>로 경로를 확인할 수 있다.</li>
+<li><code class="language-text">daemonize</code> : 장고 프로젝트 폴더에 생성할 로그 파일</li>
+</ul>
+<p>ini 파일을 만들어준 뒤 소켓 파일과 로그 파일을 생성한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ uwsgi --ini uwsgi.ini</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[uWSGI] getting INI configuration from uwsgi.ini</code></pre></div>
+<p>라는 메시지가 뜨면 잘 생성된 것이다. 이제 서버를 띄워보자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ uwsgi --http :8001 --module project1.wsgi</code></pre></div>
+<p>브라우저에서 ncloud 공인 IP주소 + 포트 번호로 들어가면 장고 로켓을 확인할 수 있다.</p>
+<p><img src="/media/ncloud-uwsgi-rocket.png" alt="uwsgi server test"></p>
+<p>그냥 런서버랑 다른 로켓이다. 같아보이지만 아무튼 다르다.</p>
+<h4 id="nginx와-uwsgi-연동하기" style="position:relative;"><a href="#nginx%EC%99%80-uwsgi-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0" aria-label="nginx와 uwsgi 연동하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>nginx와 uwsgi 연동하기</h4>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ vi /etc/nginx/sites-available/default</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">upstream django {
+  server unix:///root/project-test/project1/project1.sock;
+}
+
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  server_name 공인IP주소 도메인;
+  charset utf-8;
+
+  location / {
+    uwsgi_pass django;
+    include /etc/nginx/uwsgi_params;
+  }
+
+  location /static {
+    alias /root/project-test/project1/static;
+  }
+}</code></pre></div>
+<ul>
+<li><code class="language-text">upstream django</code>의 <code class="language-text">server</code> 항목에는 소켓 파일 경로 지정한다.</li>
+<li><code class="language-text">server_name</code>에는 공인 IP주소와 도메인을 써준다.</li>
+<li><code class="language-text">location /static</code>에는 장고 프로젝트 폴더 경로를 써준다. static 폴더가 생기는 모양</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo nginx -t</code></pre></div>
+<p>만약 여기서 에러가 나면 default 파일에 뭔가 오타가 있거나 경로지정이 잘못된 것이다. 다시 한번 살펴보자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo service nginx restart</code></pre></div>
+<p>블로그에서는 nginx 재시작 후 공인 IP 주소로 접속하면 장고 로켓이 뜰 거라고 했는데 안 뜬다. uwsgi를 실행해줘야 한다는 블로그 글을 보고 <code class="language-text">sudo service uwsgi start</code>를 했더니 uwsgi.service 파일이 없다 어쩌고 하더라.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Warning: uwsgi.service changed on disk. Run &#39;systemctl daemon-reload&#39; to reload units.
+Job for uwsgi.service failed because the control process exited with error code. See &quot;systemctl status uwsgi.service&quot; and &quot;journalctl -xe&quot; for details.</code></pre></div>
+<p>이리저리 찾아보니 uwsgi.service 파일을 만들어줬어야 했다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ vi /etc/systemd/system/uwsgi.service</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[Unit]
+Description=uWSGI Emperor service
+
+[Service]
+ExecStart=/root/miniconda3/envs/condatest/bin/uwsgi \
+         --emperor /root/project-test/project1
+Restart=on-failure
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target</code></pre></div>
+<ul>
+<li><code class="language-text">ExecStart</code>에는 uwsgi경로를 쓰고 <code class="language-text">--emperor</code>에는 장고 프로젝트 폴더 경로를 써준다. uwsgi 경로를 모르겠다면 <code class="language-text">which uwsgi</code>로 알아낼 수 있다.</li>
+</ul>
+<p>이렇게 uwsgi.service 파일을 만들어준 후,</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo systemctl start uwsgi</code></pre></div>
+<p>를 쳤는데, 또 같은 에러가 떴다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Warning: uwsgi.service changed on disk. Run &#39;systemctl daemon-reload&#39; to reload units.
+Job for uwsgi.service failed because the control process exited with error code. See &quot;systemctl status uwsgi.service&quot; and &quot;journalctl -xe&quot; for details.</code></pre></div>
+<p>에러 메시지를 다시 잘 읽어보니 <strong>Run ‘systemctl daemon-reload’ to reload units.</strong> 이런 말이 있네? 시키는대로 해보자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ systemctl daemon-reload</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo systemctl start uwsgi</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo systemctl enable uwsgi</code></pre></div>
+<p>차례로 실행 후 uwsgi가 잘 돌아가고 있는지 확인해봤다. 이전에는 Fail이라고 떴었다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ systemctl status uwsgi</code></pre></div>
+<p><img src="/media/ncloud-uwsgi-status.png" alt="uwsgi status"></p>
+<p>드디어 <strong>active (running)</strong> 글자가 보인다! 만세!</p>
+<p>+) 근데 이제 포트번호 없이 공인 IP로만도 접속이 되어야 하는데 안 된다. 뭐가 문제인지 모르겠다. 이리저리 하라는대로 설정을 바꿔봐도 안 됨 ㅠㅠ… 내일 처음부터 다시 해봐야하나 하하</p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->1 Sep 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/til/">til</a></li><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/ncloud/">ncloud</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"></a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/til73";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-4af6a79fcbbc83454c03.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-e8e7fbb006d57d32ed40.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-8e9d064a76608cd132b8.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-95831c232d573092c496.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-a0d7f0525551edb31f2c.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-fc6e82684d9e8c033b73.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-e859765f7256c80c8bb8.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-2c7e8184cd19accfa077.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-9f7759bb8c4d27ec099d.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-ba2b4f0c966d40e8d5a5.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-2c7e8184cd19accfa077.js" async=""></script><script src="/643651a62fb35a9bb4f20061cb1f214a352d7976-c6412a4c283a0fb147f0.js" async=""></script><script src="/cd95ea5cbd2c605f26db819f07999610c9ff4310-9fe6ce8c459155e85da0.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-4af6a79fcbbc83454c03.js" async=""></script><script src="/532a2f07-5eaf3e57aa62a3931643.js" async=""></script><script src="/framework-6e11d4e07218876eea4b.js" async=""></script><script src="/webpack-runtime-d8dfc68c189b6132fa8b.js" async=""></script></body></html>
