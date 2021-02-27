@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 공부 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Feb 2021 12:35:17 GMT</lastBuildDate><item><title><![CDATA[컴퓨터 네트워크 강의 - 12장. 소켓시스템 (3) 네트워크 프로그래밍]]></title><description><![CDATA[연결형/비연결형 클라이언트-서버 구조]]></description><link>https://nanaon.github.io/posts/til97</link><guid isPermaLink="false">https://nanaon.github.io/posts/til97</guid><pubDate>Sat, 27 Feb 2021 08:25:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;12장-소켓시스템&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#12%EC%9E%A5-%EC%86%8C%EC%BC%93%EC%8B%9C%EC%8A%A4%ED%85%9C&quot; aria-label=&quot;12장 소켓시스템 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;12장. 소켓시스템&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Naon's log]]></title><description><![CDATA[우당탕탕 개발 공부 블로그]]></description><link>https://nanaon.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Feb 2021 12:57:33 GMT</lastBuildDate><item><title><![CDATA[컴퓨터 네트워크 강의 - 12장. 소켓시스템 (3) 네트워크 프로그래밍]]></title><description><![CDATA[연결형/비연결형 클라이언트-서버 구조]]></description><link>https://nanaon.github.io/posts/til97</link><guid isPermaLink="false">https://nanaon.github.io/posts/til97</guid><pubDate>Sat, 27 Feb 2021 08:25:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;12장-소켓시스템&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#12%EC%9E%A5-%EC%86%8C%EC%BC%93%EC%8B%9C%EC%8A%A4%ED%85%9C&quot; aria-label=&quot;12장 소켓시스템 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;12장. 소켓시스템&lt;/h3&gt;
 &lt;h4 id=&quot;3-네트워크-프로그래밍&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&quot; aria-label=&quot;3 네트워크 프로그래밍 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;(3) 네트워크 프로그래밍&lt;/h4&gt;
 &lt;h4 id=&quot;강의-목표&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%95%EC%9D%98-%EB%AA%A9%ED%91%9C&quot; aria-label=&quot;강의 목표 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;강의 목표&lt;/h4&gt;
 &lt;ul&gt;
@@ -55,42 +55,43 @@
 &lt;li&gt;서버 먼저 실행하고, 이어서 클라이언트 실행&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;클라이언트 예제&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# define TIME_SERVER  &amp;quot;211.233.201.30&amp;quot;
-# define TIME_PORT  5010&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
+&lt;li&gt;클라이언트 예제&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;main ()
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# define TIME_SERVER  &amp;quot;211.233.201.30&amp;quot;
+# define TIME_PORT  5010
+
+main ()
 {
-int sock;
-struct sockaddr_in server;
-char buf [256];&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sock = socket (AP_INET, SOCK_STREAM, 0);
+    int sock;
+    struct sockaddr_in server;
+    char buf [256];
 
-server.sin_family = AF_INET;
-server.sin_addr.s_addr = htonl (inet_addr (TIME_SERVER));
-server.sin_port = htons (TIME_PORT);
+    sock = socket (AP_INET, SOCK_STREAM, 0);
 
-connect (sock, (struct sockaddr *)&amp;amp;server, sizeof(server));
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = htonl (inet_addr (TIME_SERVER));
+    server.sin_port = htons (TIME_PORT);
 
-if (recv (sock, buf, sizeof (buf), 0) == -1)
-    exit (1);
-printf(&amp;quot;Time information from server is %s&amp;quot;, buf);
-close (sock);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;- 서버 예제
-![](/media/network12-3.png)
+    connect (sock, (struct sockaddr *)&amp;amp;server, sizeof(server));
 
-#### 비연결형 서비스
-- UDP를 이용한 통신 절차
-![UDP를 이용한 통신 절차](/media/network12-2.png)
-
-- 클라이언트 예제
-![](/media/network12-4.png)
-
-- 서버 예제
-![](/media/network12-5.png)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[리액트 - 꼭 알아야할 ES6 문법 (1)]]></title><description><![CDATA[상수/변수 선언, Object 선언, 단축 속성, 배열/객체 비구조화 등]]></description><link>https://nanaon.github.io/posts/til92</link><guid isPermaLink="false">https://nanaon.github.io/posts/til92</guid><pubDate>Wed, 17 Feb 2021 14:18:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;상수변수-선언&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%81%EC%88%98%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8&quot; aria-label=&quot;상수변수 선언 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;상수/변수 선언&lt;/h3&gt;
+    if (recv (sock, buf, sizeof (buf), 0) == -1)
+        exit (1);
+    printf(&amp;quot;Time information from server is %s&amp;quot;, buf);
+    close (sock);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;서버 예제
+&lt;img src=&quot;/media/network12-3.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;비연결형-서비스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EC%97%B0%EA%B2%B0%ED%98%95-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;비연결형 서비스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비연결형 서비스&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;UDP를 이용한 통신 절차
+&lt;img src=&quot;/media/network12-2.png&quot; alt=&quot;UDP를 이용한 통신 절차&quot;&gt;&lt;/li&gt;
+&lt;li&gt;클라이언트 예제
+&lt;img src=&quot;/media/network12-4.png&quot;&gt;&lt;/li&gt;
+&lt;li&gt;서버 예제
+&lt;img src=&quot;/media/network12-5.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[리액트 - 꼭 알아야할 ES6 문법 (1)]]></title><description><![CDATA[상수/변수 선언, Object 선언, 단축 속성, 배열/객체 비구조화 등]]></description><link>https://nanaon.github.io/posts/til92</link><guid isPermaLink="false">https://nanaon.github.io/posts/til92</guid><pubDate>Wed, 17 Feb 2021 14:18:32 GMT</pubDate><content:encoded>&lt;h3 id=&quot;상수변수-선언&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%81%EC%88%98%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8&quot; aria-label=&quot;상수변수 선언 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;상수/변수 선언&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;var&lt;/code&gt; 대신 상수는 &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt; 변수는 &lt;code class=&quot;language-text&quot;&gt;let&lt;/code&gt;을 사용&lt;/li&gt;
 &lt;li&gt;실제 개발에서는 &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt;를 주로 사용하게 될 것&lt;/li&gt;
