@@ -3,9 +3,9 @@
 module.exports = {
   url: 'https://nanaon.github.io',
   pathPrefix: '/',
-  title: "Naon's log",
-  subtitle: '우당탕탕 개발 공부 블로그',
-  copyright: '© 2021. Naon Jeong All rights reserved.',
+  title: 'out.log',
+  subtitle: '로그를 기록합니다.',
+  copyright: '© 2022. naon All rights reserved.',
   disqusShortname: '',
   postsPerPage: 5,
   googleAnalyticsId: 'UA-73379983-2',
@@ -21,7 +21,7 @@ module.exports = {
     }
   ],
   author: {
-    name: 'Naon',
+    name: 'naon',
     photo: '/naon.png',
     bio: 'Fake it till you make it.',
     contacts: {
